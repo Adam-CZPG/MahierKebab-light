@@ -4,300 +4,181 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mahir Kebab – Autentický turecký kebab v Praze</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#FAFAF8;--bg2:#F4F1EB;--bg3:#EDE8DE;
-  --orange:#E85A1A;--orange2:#F07040;--orange-light:#FFF0E8;
-  --yellow:#D4A017;--yellow-light:#FFF9ED;
-  --teal:#00857A;--teal-light:#E6F7F5;
-  --text:#1A1208;--text2:#3D2E1A;--text3:#6B5540;
-  --muted:#9A8468;
-  --border:#E8E0D0;--border2:#D4C8B4;
-  --shadow:0 2px 16px rgba(80,50,20,0.08);
-  --shadow2:0 8px 40px rgba(80,50,20,0.12);
+  --bg:#0D0A00;--bg2:#130F02;
+  --orange:#FF6B1A;--orange2:#FF8C42;
+  --yellow:#FFD60A;--yellow2:#FFE44D;
+  --red:#E8321A;
+  --teal:#00C9A7;--teal2:#00E5BE;
+  --cream:#FFF8E7;--cream2:#FFE9B8;
+  --muted:#A89060;
+  --border:rgba(255,107,26,0.2);
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:400;overflow-x:hidden;}
+body{background:var(--bg);color:var(--cream);font-family:'Plus Jakarta Sans',sans-serif;font-weight:400;overflow-x:hidden;}
 
-/* ── LANG SWITCHER ── */
+::-webkit-scrollbar{display:none;}
+*{-ms-overflow-style:none;scrollbar-width:none;}
+
+/* LANG SWITCHER */
 .lang-switcher{display:flex;gap:3px;align-items:center;}
-.lang-btn{
-  background:none;border:1px solid transparent;
-  color:var(--muted);
-  font-size:11px;font-weight:600;letter-spacing:0.08em;
-  padding:4px 8px;border-radius:5px;cursor:pointer;
-  font-family:'DM Sans',sans-serif;
-  transition:all 0.2s;text-transform:uppercase;
-}
-.lang-btn:hover{color:var(--orange);border-color:rgba(232,90,26,0.3);}
-.lang-btn.active{color:var(--orange);border-color:rgba(232,90,26,0.4);background:var(--orange-light);}
+.lang-btn{background:none;border:1px solid transparent;color:rgba(255,248,231,0.45);font-size:11px;font-weight:600;letter-spacing:0.08em;padding:4px 8px;border-radius:5px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all 0.2s;text-transform:uppercase;}
+.lang-btn:hover{color:var(--orange2);border-color:rgba(255,107,26,0.3);}
+.lang-btn.active{color:var(--orange2);border-color:rgba(255,107,26,0.45);background:rgba(255,107,26,0.08);}
 
-/* ── NAV ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  padding:0 48px;height:70px;
-  display:flex;align-items:center;justify-content:space-between;
-  background:rgba(250,250,248,0.94);
-  border-bottom:1px solid var(--border);
-  backdrop-filter:blur(16px);
-  transition:all 0.3s;
-  gap:16px;
-}
-nav.scrolled{background:rgba(250,250,248,0.98);box-shadow:0 2px 20px rgba(80,50,20,0.08);}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:80px;display:flex;align-items:center;justify-content:space-between;background:rgba(13,10,0,0.92);border-bottom:1px solid var(--border);backdrop-filter:blur(16px);transition:background 0.3s;gap:16px;}
+nav.scrolled{background:rgba(13,10,0,0.98);}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
-.nav-logo-icon{
-  width:38px;height:38px;
-  background:linear-gradient(135deg,var(--orange),var(--yellow));
-  border-radius:8px;display:flex;align-items:center;justify-content:center;
-  font-size:19px;font-weight:900;color:#fff;
-  font-family:'Cormorant Garamond',serif;
-  box-shadow:0 4px 16px rgba(232,90,26,0.25);
-}
 .nav-logo-text{display:flex;flex-direction:column;line-height:1;}
-.nav-logo-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--text);}
-.nav-logo-name span{color:var(--orange);}
-.nav-logo-sub{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-top:2px;}
+.nav-logo-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;background:linear-gradient(135deg,#C9963A,#E8C97A,#C9963A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.nav-logo-name span{background:linear-gradient(135deg,#C9963A,#E8C97A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .nav-right{display:flex;align-items:center;gap:16px;}
 .nav-links{display:flex;gap:4px;list-style:none;align-items:center;}
-.nav-links a{
-  color:var(--text3);text-decoration:none;
-  font-size:13px;letter-spacing:0.03em;font-weight:500;
-  padding:8px 14px;border-radius:6px;transition:all 0.2s;
-}
-.nav-links a:hover{background:var(--orange-light);color:var(--orange);}
-.nav-links a.active-link{color:var(--orange);}
-.nav-cta{
-  background:var(--orange) !important;
-  color:#fff !important;font-weight:600 !important;
-  border-radius:8px !important;padding:8px 18px !important;
-  box-shadow:0 4px 14px rgba(232,90,26,0.25);
-}
-.nav-cta:hover{background:var(--orange2) !important;transform:translateY(-1px) !important;box-shadow:0 6px 22px rgba(232,90,26,0.35) !important;}
+.nav-links a{color:rgba(255,248,231,0.7);text-decoration:none;font-size:13px;letter-spacing:0.05em;font-weight:500;padding:8px 14px;border-radius:6px;transition:all 0.2s;}
+.nav-links a:hover{background:rgba(255,107,26,0.1);color:var(--orange2);}
+.nav-links a.active-link{color:var(--orange2);}
+.nav-cta{background:linear-gradient(135deg,var(--orange),var(--orange2)) !important;color:#000 !important;font-weight:700 !important;border-radius:8px !important;padding:8px 18px !important;box-shadow:0 4px 16px rgba(255,107,26,0.3);}
+.nav-cta:hover{transform:translateY(-1px) !important;box-shadow:0 6px 24px rgba(255,107,26,0.5) !important;background:var(--orange) !important;}
 
-/* MOBILE */
-.mobile-btn{
-  display:none;background:none;
-  border:1px solid var(--border2);color:var(--text);
-  padding:7px 12px;border-radius:6px;font-size:18px;cursor:pointer;
-}
-.mobile-nav{
-  display:none;position:fixed;
-  top:70px;left:0;right:0;
-  background:rgba(250,250,248,0.98);
-  border-bottom:1px solid var(--border);
-  padding:12px 20px;z-index:99;
-  flex-direction:column;gap:6px;
-  backdrop-filter:blur(20px);
-  box-shadow:0 8px 32px rgba(80,50,20,0.1);
-}
+.mobile-btn{display:none;background:none;border:1px solid var(--border);color:var(--cream);padding:7px 12px;border-radius:6px;font-size:18px;cursor:pointer;}
+.mobile-nav{display:none;position:fixed;top:70px;left:0;right:0;background:rgba(13,10,0,0.98);border-bottom:1px solid var(--border);padding:12px 20px;z-index:99;flex-direction:column;gap:6px;backdrop-filter:blur(20px);}
 .mobile-nav.open{display:flex;}
-.mobile-nav a{
-  color:var(--text2);text-decoration:none;
-  font-size:15px;font-weight:500;
-  padding:12px 16px;border-radius:6px;
-  border:1px solid transparent;transition:all 0.2s;
-}
-.mobile-nav a:hover{background:var(--orange-light);border-color:var(--border);color:var(--orange);}
+.mobile-nav a{color:var(--cream);text-decoration:none;font-size:15px;font-weight:500;padding:12px 16px;border-radius:6px;border:1px solid transparent;transition:all 0.2s;}
+.mobile-nav a:hover{background:rgba(255,107,26,0.1);border-color:var(--border);color:var(--orange2);}
 .mobile-lang{display:flex;gap:6px;padding:10px 16px;border-top:1px solid var(--border);margin-top:4px;}
 
-/* ── HERO ── */
-.hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;background:var(--bg);}
-.hero-pattern{
-  position:absolute;inset:0;pointer-events:none;
-  background-image: 
-    radial-gradient(circle at 70% 50%, rgba(232,90,26,0.06) 0%, transparent 50%),
-    radial-gradient(circle at 20% 80%, rgba(212,160,23,0.05) 0%, transparent 40%),
-    radial-gradient(circle at 85% 15%, rgba(0,133,122,0.04) 0%, transparent 35%);
-}
-/* Subtle dot grid */
-.hero-pattern::after{
-  content:'';position:absolute;inset:0;
-  background-image:radial-gradient(circle,rgba(80,50,20,0.06) 1px,transparent 1px);
-  background-size:32px 32px;
-}
-.hero-content{
-  position:relative;z-index:2;max-width:1200px;margin:0 auto;
-  padding:110px 48px 80px;
-  display:grid;grid-template-columns:1.1fr 0.9fr;gap:60px;align-items:center;width:100%;
-}
-.hero-badge{
-  display:inline-flex;align-items:center;gap:8px;
-  background:var(--orange-light);
-  border:1px solid rgba(232,90,26,0.2);
-  padding:7px 18px;border-radius:30px;
-  font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--orange);
-  margin-bottom:24px;animation:fadeUp 0.7s ease both;font-weight:600;
-}
-.hero-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(52px,6vw,88px);font-weight:700;line-height:0.95;letter-spacing:-0.02em;
-  margin-bottom:24px;animation:fadeUp 0.7s 0.1s ease both;color:var(--text);
-}
-.t-orange{color:var(--orange);}
-.t-italic{font-style:italic;color:var(--orange2);}
-.hero-desc{font-size:15px;line-height:1.75;color:var(--text3);max-width:440px;margin-bottom:36px;animation:fadeUp 0.7s 0.2s ease both;}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp 0.7s 0.3s ease both;}
-.btn-primary{
-  background:var(--orange);color:#fff;
-  padding:14px 30px;border-radius:10px;text-decoration:none;
-  font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
-  transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;
-  box-shadow:0 4px 20px rgba(232,90,26,0.25);
-}
-.btn-primary:hover{background:var(--orange2);transform:translateY(-3px);box-shadow:0 8px 32px rgba(232,90,26,0.35);}
-.btn-outline{
-  border:1.5px solid var(--border2);color:var(--text2);
-  padding:14px 30px;border-radius:10px;text-decoration:none;
-  font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
-  transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;
-  background:transparent;
-}
-.btn-outline:hover{background:var(--bg2);border-color:var(--orange);color:var(--orange);transform:translateY(-2px);}
+/* HERO */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 65% 45%,rgba(255,107,26,0.14) 0%,transparent 55%),radial-gradient(ellipse 40% 50% at 15% 70%,rgba(255,214,10,0.07) 0%,transparent 50%),radial-gradient(ellipse 30% 40% at 80% 80%,rgba(0,201,167,0.06) 0%,transparent 45%),linear-gradient(160deg,#0D0A00 0%,#1A0F02 50%,#0A0D0A 100%);}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);animation:blobFloat 8s ease-in-out infinite;pointer-events:none;}
+.blob1{width:500px;height:500px;background:rgba(255,107,26,0.11);top:-100px;right:-100px;animation-delay:0s;}
+.blob2{width:400px;height:400px;background:rgba(255,214,10,0.07);bottom:-50px;left:-80px;animation-delay:3s;}
+.blob3{width:300px;height:300px;background:rgba(0,201,167,0.06);top:40%;right:20%;animation-delay:1.5s;}
+@keyframes blobFloat{0%,100%{transform:translate(0,0)scale(1);}33%{transform:translate(20px,-15px)scale(1.05);}66%{transform:translate(-15px,20px)scale(0.95);}}
 
-/* HERO VISUAL — elegant plate illustration */
-.hero-visual{display:flex;justify-content:center;align-items:center;animation:fadeUp 0.7s 0.15s ease both;}
-.plate-wrap{position:relative;width:360px;height:360px;}
-.plate-ring-outer{
-  position:absolute;inset:0;border-radius:50%;
-  border:1.5px solid var(--border2);
-  animation:slowSpin 40s linear infinite;
-}
-.plate-ring-inner{
-  position:absolute;inset:40px;border-radius:50%;
-  border:1px dashed rgba(232,90,26,0.2);
-  animation:slowSpin 25s linear infinite reverse;
-}
-.plate-circle{
-  position:absolute;inset:80px;border-radius:50%;
-  background:linear-gradient(135deg,var(--orange-light),var(--yellow-light));
-  border:1px solid rgba(232,90,26,0.15);
-  box-shadow:0 8px 40px rgba(232,90,26,0.1),inset 0 2px 8px rgba(255,255,255,0.8);
-}
-.plate-center{
-  position:absolute;inset:80px;border-radius:50%;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  z-index:2;
-}
-.plate-emoji{font-size:52px;filter:drop-shadow(0 4px 12px rgba(232,90,26,0.2));margin-bottom:6px;}
-.plate-name{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--text);line-height:1;}
-.plate-name span{color:var(--orange);}
-.plate-line{width:60px;height:1.5px;background:linear-gradient(90deg,transparent,var(--orange),transparent);margin:10px auto;border-radius:2px;}
-.plate-sub{font-size:9px;letter-spacing:0.35em;text-transform:uppercase;color:var(--muted);}
-.orbit-dot-light{position:absolute;width:9px;height:9px;border-radius:50%;border:2px solid white;}
-.odl1{background:var(--orange);top:10px;left:50%;transform:translateX(-50%);box-shadow:0 0 10px rgba(232,90,26,0.4);}
-.odl2{background:var(--yellow);bottom:10px;left:50%;transform:translateX(-50%);box-shadow:0 0 10px rgba(212,160,23,0.4);}
-.odl3{background:var(--teal);left:10px;top:50%;transform:translateY(-50%);box-shadow:0 0 10px rgba(0,133,122,0.4);}
-.odl4{background:var(--orange2);right:10px;top:50%;transform:translateY(-50%);box-shadow:0 0 10px rgba(240,112,64,0.4);}
-@keyframes slowSpin{to{transform:rotate(360deg);}}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:110px 48px 80px;display:flex;align-items:center;width:100%;}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(48px,6vw,82px);font-weight:900;line-height:1.0;letter-spacing:-0.025em;margin-bottom:22px;animation:fadeUp 0.7s 0.1s ease both;}
+.t-orange{background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.t-italic{font-style:italic;background:linear-gradient(135deg,var(--yellow2),var(--orange2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-desc{font-size:15px;line-height:1.75;color:rgba(255,248,231,0.6);max-width:440px;margin-bottom:36px;animation:fadeUp 0.7s 0.2s ease both;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp 0.7s 0.3s ease both;}
+.btn-primary{background:linear-gradient(135deg,var(--orange),var(--orange2));color:#000;padding:14px 30px;border-radius:10px;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;box-shadow:0 4px 20px rgba(255,107,26,0.35);}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(255,107,26,0.55);}
+.btn-outline{border:1px solid rgba(255,214,10,0.3);color:var(--yellow2);padding:14px 30px;border-radius:10px;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;background:rgba(255,214,10,0.04);}
+.btn-outline:hover{background:rgba(255,214,10,0.1);border-color:rgba(255,214,10,0.6);transform:translateY(-2px);}
+
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
 
-/* SCROLL ARROW */
 .scroll-ind{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;animation:fadeUp 1s 0.6s ease both;z-index:3;}
-.scroll-ind span{font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);}
-.scroll-arrow{width:18px;height:18px;border-right:2px solid var(--orange);border-bottom:2px solid var(--orange);transform:rotate(45deg);animation:bounce 1.5s ease-in-out infinite;opacity:0.5;}
+.scroll-ind span{font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,248,231,0.3);}
+.scroll-arrow{width:20px;height:20px;border-right:2px solid var(--orange);border-bottom:2px solid var(--orange);transform:rotate(45deg);animation:bounce 1.5s ease-in-out infinite;opacity:0.6;}
 @keyframes bounce{0%,100%{transform:rotate(45deg)translateY(0);}50%{transform:rotate(45deg)translateY(5px);}}
 
-/* ── STATS ── */
-.stats-bar{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:28px 48px;}
+/* STATS */
+.stats-bar{background:linear-gradient(135deg,rgba(255,107,26,0.08),rgba(255,214,10,0.05));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:28px 48px;}
 .stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);}
 .stat-item{text-align:center;padding:8px 24px;border-right:1px solid var(--border);}
 .stat-item:last-child{border-right:none;}
-.stat-number{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;display:block;line-height:1;color:var(--orange);}
+.stat-number{font-family:'Playfair Display',serif;font-size:34px;font-weight:900;display:block;line-height:1;background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .stat-label{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-top:6px;display:block;}
 
-/* ── SECTION ── */
+/* SECTION */
 .section{padding:90px 48px;max-width:1200px;margin:0 auto;}
-.section-label{font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:var(--orange);margin-bottom:14px;display:inline-flex;align-items:center;gap:8px;font-weight:600;}
+.section-label{font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:var(--orange2);margin-bottom:14px;display:inline-flex;align-items:center;gap:8px;}
 .section-label::before{content:'';display:inline-block;width:24px;height:2px;background:linear-gradient(90deg,var(--orange),var(--yellow));border-radius:2px;}
-.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,54px);font-weight:700;line-height:1.0;letter-spacing:-0.015em;color:var(--text);}
-.section-title em{font-style:italic;color:var(--orange);}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(34px,4vw,50px);font-weight:900;line-height:1.05;letter-spacing:-0.02em;}
+.section-title em{font-style:italic;background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 
-/* ── MENU ── */
-.menu-tabs{display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:40px;margin-top:40px;overflow-x:auto;}
-.menu-tab{padding:12px 26px;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);cursor:pointer;border:none;background:none;font-family:'DM Sans',sans-serif;font-weight:600;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all 0.2s;white-space:nowrap;}
-.menu-tab.active{color:var(--orange);border-bottom-color:var(--orange);}
-.menu-tab:hover{color:var(--text2);}
-.menu-grid{display:none;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:2px;}
+/* MENU */
+.menu-tabs{display:flex;gap:0;border-bottom:2px solid rgba(255,107,26,0.15);margin-bottom:40px;margin-top:40px;overflow-x:auto;overflow-y:hidden;flex-wrap:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.menu-tabs::-webkit-scrollbar{display:none;}
+.menu-tab{padding:10px 11px;font-size:10.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);cursor:pointer;border:none;background:none;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all 0.2s;white-space:nowrap;}
+.menu-tab.active{color:var(--orange2);border-bottom-color:var(--orange);}
+.menu-tab:hover{color:var(--cream);}
+.menu-grid{display:none;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:3px;}
 .menu-grid.active{display:grid;}
-.menu-item{background:#fff;border:1px solid var(--border);padding:22px 26px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;transition:all 0.25s;cursor:default;position:relative;overflow:hidden;border-radius:2px;}
+.menu-item{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);padding:24px 28px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;transition:all 0.25s;cursor:default;position:relative;overflow:hidden;border-radius:2px;}
 .menu-item::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--orange),var(--yellow));transform:scaleX(0);transform-origin:left;transition:transform 0.3s;}
-.menu-item:hover{background:var(--orange-light);border-color:rgba(232,90,26,0.2);transform:translateY(-2px);box-shadow:var(--shadow);}
+.menu-item:hover{background:rgba(255,107,26,0.06);border-color:rgba(255,107,26,0.2);transform:translateY(-2px);}
 .menu-item:hover::before{transform:scaleX(1);}
-.menu-item-num{font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--muted);font-weight:600;min-width:20px;margin-top:2px;}
+.menu-item-num{font-family:'Playfair Display',serif;font-size:11px;background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700;min-width:20px;margin-top:2px;}
 .menu-item-info{flex:1;}
-.menu-item-name{font-size:15px;font-weight:600;color:var(--text);margin-bottom:5px;}
+.menu-item-name{font-size:15px;font-weight:600;color:var(--cream);margin-bottom:5px;}
 .menu-item-desc{font-size:12px;color:var(--muted);line-height:1.5;}
-.menu-item-price{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--orange);white-space:nowrap;}
-.menu-item-price span{font-size:11px;color:var(--muted);font-family:'DM Sans',sans-serif;font-weight:400;}
+.menu-item-price{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;background:linear-gradient(135deg,var(--orange2),var(--yellow2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;white-space:nowrap;}
+.menu-item-price span{font-size:11px;color:var(--muted);font-family:'Plus Jakarta Sans',sans-serif;font-weight:400;-webkit-text-fill-color:var(--muted);}
 
-/* ── LOCATIONS ── */
-.locations-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:90px 48px;}
+/* LOCATIONS */
+.locations-section{background:linear-gradient(160deg,var(--bg2),#060A08);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:90px 48px;}
 .locations-inner{max-width:1200px;margin:0 auto;}
-.locations-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:2px;margin-top:50px;}
-.location-card{background:#fff;border:1px solid var(--border);padding:32px 28px;position:relative;overflow:hidden;transition:all 0.3s;border-radius:2px;}
-.location-card:hover{border-color:rgba(232,90,26,0.3);transform:translateY(-4px);box-shadow:var(--shadow2);}
-.location-rating{display:inline-flex;align-items:center;gap:6px;background:var(--orange-light);border:1px solid rgba(232,90,26,0.15);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;color:var(--orange);margin-bottom:18px;}
-.location-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin-bottom:6px;color:var(--text);}
-.location-district{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--orange);margin-bottom:14px;font-weight:600;}
+.locations-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:3px;margin-top:50px;}
+.location-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);padding:32px 28px;position:relative;overflow:hidden;transition:all 0.3s;border-radius:2px;}
+.location-card:hover{background:rgba(255,107,26,0.06);border-color:rgba(255,107,26,0.25);transform:translateY(-4px);}
+.loc-glow{position:absolute;bottom:-40px;right:-40px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,26,0.12),transparent 65%);opacity:0;transition:opacity 0.3s;pointer-events:none;}
+.location-card:hover .loc-glow{opacity:1;}
+.location-rating{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,rgba(255,107,26,0.12),rgba(255,214,10,0.08));border:1px solid rgba(255,107,26,0.2);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;color:var(--orange2);margin-bottom:18px;}
+.location-name{font-family:'Playfair Display',serif;font-size:21px;font-weight:700;margin-bottom:6px;color:var(--cream);}
+.location-district{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px;font-weight:600;}
 .location-address{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:16px;}
-.location-hours{font-size:12px;color:var(--text3);display:flex;align-items:center;gap:8px;margin-bottom:18px;}
-.location-hours::before{content:'';display:inline-block;width:7px;height:7px;background:#22C55E;border-radius:50%;box-shadow:0 0 6px rgba(34,197,94,0.5);flex-shrink:0;}
+.location-hours{font-size:12px;color:rgba(255,248,231,0.5);display:flex;align-items:center;gap:8px;margin-bottom:18px;}
+.location-hours::before{content:'';display:inline-block;width:7px;height:7px;background:#4ADE80;border-radius:50%;box-shadow:0 0 8px #4ADE80;flex-shrink:0;}
 .location-services{display:flex;gap:6px;flex-wrap:wrap;}
-.service-tag{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:3px 10px;border-radius:4px;background:var(--bg);transition:all 0.2s;}
-.location-card:hover .service-tag{border-color:rgba(232,90,26,0.2);color:var(--orange);}
-.directions-btn{display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:12px;font-weight:600;color:var(--teal);text-decoration:none;border:1px solid rgba(0,133,122,0.25);padding:7px 14px;border-radius:6px;background:var(--teal-light);transition:all 0.2s;}
-.directions-btn:hover{background:rgba(0,133,122,0.12);border-color:rgba(0,133,122,0.5);}
+.service-tag{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);border:1px solid rgba(255,107,26,0.15);padding:3px 10px;border-radius:4px;background:rgba(255,107,26,0.04);transition:all 0.2s;}
+.location-card:hover .service-tag{border-color:rgba(255,107,26,0.3);color:var(--orange2);}
+.directions-btn{display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:12px;font-weight:600;color:var(--teal2);text-decoration:none;border:1px solid rgba(0,201,167,0.25);padding:7px 14px;border-radius:6px;background:rgba(0,201,167,0.05);transition:all 0.2s;}
+.directions-btn:hover{background:rgba(0,201,167,0.12);border-color:rgba(0,201,167,0.5);}
 
-/* ── ABOUT ── */
+/* ABOUT */
 .about-section{padding:90px 48px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
-.about-box{background:linear-gradient(135deg,var(--bg2),var(--orange-light));border:1px solid var(--border);padding:60px 50px;text-align:center;position:relative;border-radius:16px;overflow:hidden;}
-.about-box::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,90,26,0.08),transparent);}
-.about-box-num{font-family:'Cormorant Garamond',serif;font-size:120px;font-weight:700;color:rgba(232,90,26,0.06);position:absolute;top:-10px;left:50%;transform:translateX(-50%);line-height:1;pointer-events:none;white-space:nowrap;}
-.about-quote{font-family:'Cormorant Garamond',serif;font-size:26px;font-style:italic;font-weight:400;color:var(--text);line-height:1.45;position:relative;z-index:1;}
-.about-qmark{font-size:70px;color:var(--orange);opacity:0.25;line-height:0;display:block;margin-bottom:14px;font-family:'Cormorant Garamond',serif;}
+.about-box{background:linear-gradient(135deg,rgba(255,107,26,0.07),rgba(255,214,10,0.04));border:1px solid rgba(255,107,26,0.2);padding:60px 50px;text-align:center;position:relative;border-radius:12px;overflow:hidden;}
+.about-box-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 70% 20%,rgba(255,214,10,0.06),transparent 60%);}
+.about-quote{font-family:'Playfair Display',serif;font-size:26px;font-style:italic;font-weight:400;color:var(--cream);line-height:1.45;position:relative;z-index:1;}
+.about-qmark{font-size:70px;background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;opacity:0.6;line-height:0;display:block;margin-bottom:14px;}
 .about-content .section-title{margin-bottom:24px;margin-top:14px;}
-.about-text{font-size:15px;line-height:1.8;color:var(--text3);margin-bottom:18px;}
-.about-features{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-.about-feature{display:flex;align-items:flex-start;gap:12px;background:#fff;border:1px solid var(--border);padding:16px;border-radius:8px;transition:all 0.2s;}
-.about-feature:hover{background:var(--orange-light);border-color:rgba(232,90,26,0.2);box-shadow:var(--shadow);}
-.about-feature-icon{font-size:20px;flex-shrink:0;}
-.about-feature-label{font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px;}
+.about-text{font-size:15px;line-height:1.8;color:rgba(255,248,231,0.55);margin-bottom:18px;}
+.about-features{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.about-feature{display:flex;align-items:flex-start;gap:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);padding:16px;border-radius:8px;transition:all 0.2s;}
+.about-feature:hover{background:rgba(255,107,26,0.06);border-color:rgba(255,107,26,0.2);}
+.about-feature-icon{font-size:22px;flex-shrink:0;}
+.about-feature-label{font-size:13px;font-weight:600;color:var(--cream);margin-bottom:3px;}
 .about-feature-text{font-size:11px;color:var(--muted);line-height:1.5;}
 
-/* ── CTA ── */
-.cta-section{background:var(--text);padding:90px 48px;text-align:center;position:relative;overflow:hidden;}
-.cta-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(232,90,26,0.12),transparent 55%);pointer-events:none;}
+/* CTA */
+.cta-section{background:linear-gradient(135deg,#100800,#0A0F0A);border-top:1px solid var(--border);padding:90px 48px;text-align:center;position:relative;overflow:hidden;}
+.cta-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(255,107,26,0.07),transparent 55%);pointer-events:none;}
 .cta-inner{max-width:700px;margin:0 auto;position:relative;z-index:1;}
-.cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,56px);font-weight:700;line-height:1.0;margin-bottom:18px;color:#fff;}
-.cta-title em{font-style:italic;color:var(--orange2);}
-.cta-desc{color:rgba(255,255,255,0.55);font-size:15px;line-height:1.7;margin-bottom:36px;}
-.btn-phone{display:inline-flex;align-items:center;gap:10px;background:var(--teal);color:#fff;padding:16px 40px;border-radius:12px;text-decoration:none;font-size:15px;font-weight:600;letter-spacing:0.04em;box-shadow:0 6px 28px rgba(0,133,122,0.3);transition:all 0.25s;}
-.btn-phone:hover{transform:translateY(-3px);box-shadow:0 10px 40px rgba(0,133,122,0.45);background:#007A6F;}
-.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:1200px;margin:56px auto 0;}
-.contact-item{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:28px 24px;border-radius:2px;transition:all 0.2s;}
-.contact-item:hover{background:rgba(232,90,26,0.08);border-color:rgba(232,90,26,0.3);}
+.cta-title{font-family:'Playfair Display',serif;font-size:clamp(34px,4vw,52px);font-weight:900;line-height:1.05;margin-bottom:18px;}
+.cta-title em{font-style:italic;background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.cta-desc{color:rgba(255,248,231,0.5);font-size:15px;line-height:1.7;margin-bottom:16px;}
+.cta-pickup-note{display:inline-flex;align-items:center;gap:8px;background:rgba(0,201,167,0.07);border:1px solid rgba(0,201,167,0.2);border-radius:8px;padding:10px 20px;font-size:12px;color:var(--teal2);margin-bottom:28px;}
+.btn-phone{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#C9963A,#E8C97A,#A67C28);color:#1a0e00;padding:16px 40px;border-radius:12px;text-decoration:none;font-size:15px;font-weight:700;letter-spacing:0.04em;box-shadow:0 6px 28px rgba(201,150,58,0.45);transition:all 0.25s;}
+.btn-phone:hover{transform:translateY(-3px);box-shadow:0 10px 40px rgba(201,150,58,0.6);}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;max-width:1200px;margin:56px auto 0;}
+.contact-item{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);padding:28px 24px;border-radius:2px;transition:all 0.2s;}
+.contact-item:hover{background:rgba(255,107,26,0.05);border-color:rgba(255,107,26,0.2);}
 .contact-icon{font-size:26px;margin-bottom:12px;display:block;}
-.contact-label{font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--orange2);margin-bottom:7px;display:block;font-weight:600;}
-.contact-value{font-size:14px;color:rgba(255,255,255,0.75);font-weight:400;}
+.contact-label{font-size:10px;letter-spacing:0.3em;text-transform:uppercase;background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:7px;display:block;font-weight:600;}
+.contact-value{font-size:14px;color:var(--cream);font-weight:400;}
 
-/* ── FOOTER ── */
-footer{background:var(--bg2);border-top:1px solid var(--border);padding:36px 48px;display:flex;justify-content:space-between;align-items:center;}
-.footer-brand{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--text);}
-.footer-brand span{color:var(--orange);}
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 48px;display:flex;justify-content:space-between;align-items:center;}
+.footer-brand{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;background:linear-gradient(135deg,#C9963A,#E8C97A,#C9963A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.footer-brand span{background:linear-gradient(135deg,#C9963A,#E8C97A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .footer-copy{font-size:12px;color:var(--muted);}
 .footer-links{display:flex;gap:20px;list-style:none;}
 .footer-links a{font-size:12px;color:var(--muted);text-decoration:none;transition:color 0.2s;}
-.footer-links a:hover{color:var(--orange);}
+.footer-links a:hover{color:var(--orange2);}
 
-/* ── RESPONSIVE ── */
+/* RESPONSIVE */
 @media(max-width:900px){
   nav{padding:0 20px;}
   .nav-links{display:none;}
   .mobile-btn{display:block;}
-  .hero-content{grid-template-columns:1fr;padding:90px 20px 60px;gap:40px;}
-  .hero-visual{display:none;}
+  .hero-content{padding:90px 20px 60px;}
   .stats-inner{grid-template-columns:repeat(2,1fr);}
   .section{padding:60px 20px;}
   .about-section{grid-template-columns:1fr;padding:60px 20px;gap:40px;}
@@ -319,10 +200,9 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:36px 48p
 <!-- NAV -->
 <nav id="navbar">
   <a href="#hero" class="nav-logo" onclick="smoothTo('hero',event)">
-    <div class="nav-logo-icon">M</div>
+    <img src="logo.png" alt="Mahir Kebab" style="width:58px;height:58px;object-fit:contain;filter:drop-shadow(0 2px 10px rgba(201,150,58,0.45));">
     <div class="nav-logo-text">
       <span class="nav-logo-name">Mahir <span>Kebab</span></span>
-      <span class="nav-logo-sub">Praha · Autentické</span>
     </div>
   </a>
   <ul class="nav-links">
@@ -330,7 +210,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:36px 48p
     <li><a href="#pobocky" class="nl" onclick="smoothTo('pobocky',event)" data-i18n="nav.branches">Pobočky</a></li>
     <li><a href="#o-nas" class="nl" onclick="smoothTo('o-nas',event)" data-i18n="nav.about">O nás</a></li>
     <li><a href="#kontakt" class="nl" onclick="smoothTo('kontakt',event)" data-i18n="nav.contact">Kontakt</a></li>
-    <li><a href="tel:+420702247747" class="nav-cta nl" data-i18n="nav.order">📞 Objednat</a></li>
+    <li><a href="https://ecopay-nu.vercel.app/" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href,'_blank','noopener,noreferrer');return false;" class="nav-cta nl" data-i18n="nav.order">🛍️ Objednat &amp; Vyzvednout</a></li>
   </ul>
   <div class="nav-right">
     <div class="lang-switcher">
@@ -349,7 +229,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:36px 48p
   <a href="#pobocky" onclick="mGoTo('pobocky')" data-i18n-mob="nav.branches">📍 Pobočky</a>
   <a href="#o-nas" onclick="mGoTo('o-nas')" data-i18n-mob="nav.about">ℹ️ O nás</a>
   <a href="#kontakt" onclick="mGoTo('kontakt')" data-i18n-mob="nav.contact">✉️ Kontakt</a>
-  <a href="tel:+420702247747" style="background:var(--orange-light);border-color:rgba(232,90,26,0.3);color:var(--orange);">📞 +420 702 247 747</a>
+  <a href="https://ecopay-nu.vercel.app/" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href,'_blank','noopener,noreferrer');return false;" style="background:rgba(255,107,26,0.12);border-color:rgba(255,107,26,0.3);color:var(--orange2);" data-i18n="nav.order">🛍️ Objednat &amp; Vyzvednout</a>
   <div class="mobile-lang">
     <button class="lang-btn active" onclick="setLang('cs')">CZ</button>
     <button class="lang-btn" onclick="setLang('en')">EN</button>
@@ -359,13 +239,13 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:36px 48p
 </div>
 
 <!-- HERO -->
-<section id="hero" class="hero">
-  <div class="hero-pattern"></div>
+<section id="hero" style="min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;">
+  <div class="hero-bg"></div>
+  <div class="blob blob1"></div><div class="blob blob2"></div><div class="blob blob3"></div>
   <div class="hero-content">
     <div>
-      <div class="hero-badge" data-i18n="hero.badge">⭐ 4.6 hodnocení · 2400+ recenzí · 4 pobočky</div>
       <h1 class="hero-title">
-        <span data-i18n="hero.title1">Autentický</span><br>
+        <span style="color:var(--cream)" data-i18n="hero.title1">Autentický</span><br>
         <span class="t-orange" data-i18n="hero.title2">turecký</span><br>
         <span class="t-italic" data-i18n="hero.title3">kebab</span>
       </h1>
@@ -375,28 +255,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:36px 48p
         <a href="#pobocky" class="btn-outline" onclick="smoothTo('pobocky',event)" data-i18n="hero.btn2">📍 Najít pobočku</a>
       </div>
     </div>
-    <div class="hero-visual">
-      <div class="plate-wrap">
-        <div class="plate-ring-outer">
-          <div class="orbit-dot-light odl1"></div>
-          <div class="orbit-dot-light odl2"></div>
-          <div class="orbit-dot-light odl3"></div>
-          <div class="orbit-dot-light odl4"></div>
-        </div>
-        <div class="plate-ring-inner"></div>
-        <div class="plate-circle"></div>
-        <div class="plate-center">
-          <span class="plate-emoji">🥙</span>
-          <div class="plate-name">Mahir<br><span>Kebab</span></div>
-          <div class="plate-line"></div>
-          <div class="plate-sub" data-i18n="hero.emblem">Praha · Čerstvé · Tradiční</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="scroll-ind">
-    <span data-i18n="hero.scroll">Posunout dolů</span>
-    <div class="scroll-arrow"></div>
   </div>
 </section>
 
@@ -417,27 +275,93 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:36px 48p
   <div class="menu-tabs">
     <button class="menu-tab active" onclick="switchTab('doner',this)" data-i18n="menu.tab1">🥙 Döner kebab</button>
     <button class="menu-tab" onclick="switchTab('durum',this)" data-i18n="menu.tab2">🌯 Dürüm kebab</button>
-    <button class="menu-tab" onclick="switchTab('dalsi',this)" data-i18n="menu.tab3">🥗 Kebab & Saláty</button>
+    <button class="menu-tab" onclick="switchTab('talir',this)" data-i18n="menu.tab3">🍽️ Talíř kebab</button>
+    <button class="menu-tab" onclick="switchTab('box',this)" data-i18n="menu.tab4">📦 Kebab Box</button>
+    <button class="menu-tab" onclick="switchTab('salaty',this)" data-i18n="menu.tab5">🥗 Saláty</button>
+    <button class="menu-tab" onclick="switchTab('vegetarian',this)" data-i18n="menu.tab9">🌿 Vegetarian</button>
+    <button class="menu-tab" onclick="switchTab('dezerty',this)" data-i18n="menu.tab6">🍮 Dezerty</button>
+    <button class="menu-tab" onclick="switchTab('prilohy',this)" data-i18n="menu.tab7">🍟 Přílohy</button>
+    <button class="menu-tab" onclick="switchTab('napoje',this)" data-i18n="menu.tab8">🥤 Nápoje</button>
   </div>
+
+  <!-- DÖNER -->
   <div class="menu-grid active" id="tab-doner">
-    <div class="menu-item"><span class="menu-item-num">01</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.d1.name">Döner Klasický</div><div class="menu-item-desc" data-i18n="menu.d1.desc">Kuřecí nebo hovězí maso, salát, dresing, chléb</div></div><div class="menu-item-price">120 <span>Kč</span></div></div>
-    <div class="menu-item"><span class="menu-item-num">02</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.d2.name">Döner se Sýrem</div><div class="menu-item-desc" data-i18n="menu.d2.desc">Maso, salát, dresing, sýr, chléb</div></div><div class="menu-item-price">140 <span>Kč</span></div></div>
-    <div class="menu-item"><span class="menu-item-num">03</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.d3.name">Speciální Döner</div><div class="menu-item-desc" data-i18n="menu.d3.desc">Jen maso a dresing, chléb</div></div><div class="menu-item-price">130 <span>Kč</span></div></div>
-    <div class="menu-item"><span class="menu-item-num">04</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.d4.name">Mega Döner se Sýrem</div><div class="menu-item-desc" data-i18n="menu.d4.desc">Plná porce — maso, salát, dresing a sýr</div></div><div class="menu-item-price">100 <span>Kč</span></div></div>
-    <div class="menu-item"><span class="menu-item-num">05</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.d5.name">Döner Základní</div><div class="menu-item-desc" data-i18n="menu.d5.desc">Kuřecí nebo hovězí maso</div></div><div class="menu-item-price">110 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">01</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.d1.name">Döner BEZ ZELÍ</div><div class="menu-item-desc" data-i18n="menu.d1.desc">Döner kebab zabalený v tureckém chlebu s masem dle výběru, rajčaty, okurkou, ledovým salátem a omáčkou dle výběru</div></div><div class="menu-item-price">180 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">02</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.d2.name">Döner klasický</div><div class="menu-item-desc" data-i18n="menu.d2.desc">Kebab zabalený v tureckém chlebu — kuřecí, hovězí nebo mix maso, rajčata, ledový salát, bílé a červené zelí</div></div><div class="menu-item-price">160 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">03</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.d3.name">Döner se sýrem</div><div class="menu-item-desc" data-i18n="menu.d3.desc">Döner kebab se sýrem zabalený v tureckém chlebu — kuřecí, hovězí nebo mix maso, rajčata, sýr, ledový salát, bílé a červené zelí</div></div><div class="menu-item-price">175 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">04</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.d4.name">Speciální döner</div><div class="menu-item-desc" data-i18n="menu.d4.desc">Döner kebab zabalený v tureckém chlebu. VELKÁ porce kuřecího, hovězího nebo mix masa, bez salátu, jen maso a omáčka</div></div><div class="menu-item-price">200 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">05</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.d5.name">Mega döner se sýrem</div><div class="menu-item-desc" data-i18n="menu.d5.desc">Mega döner kebab se sýrem zabalený v tureckém chlebu. Velká porce kuřecího, hovězího nebo mix masa, sýr, rajčata, ledový salát, bílé a červené zelí</div></div><div class="menu-item-price">175 <span>Kč</span></div></div>
   </div>
+
+  <!-- DÜRÜM -->
   <div class="menu-grid" id="tab-durum">
-    <div class="menu-item"><span class="menu-item-num">06</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.u1.name">Dürüm Klasický</div><div class="menu-item-desc" data-i18n="menu.u1.desc">Kuřecí nebo hovězí maso, salát, dresing</div></div><div class="menu-item-price">130 <span>Kč</span></div></div>
-    <div class="menu-item"><span class="menu-item-num">07</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.u2.name">Dürüm se Sýrem</div><div class="menu-item-desc" data-i18n="menu.u2.desc">Plná náplň: maso, salát, dresing a sýr</div></div><div class="menu-item-price">160 <span>Kč</span></div></div>
-    <div class="menu-item"><span class="menu-item-num">08</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.u3.name">Speciální Dürüm</div><div class="menu-item-desc" data-i18n="menu.u3.desc">Jen maso a dresing, sýr</div></div><div class="menu-item-price">140 <span>Kč</span></div></div>
-    <div class="menu-item"><span class="menu-item-num">09</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.u4.name">Mega Dürüm</div><div class="menu-item-desc" data-i18n="menu.u4.desc">Extra velký, plná porce masa a čerstvého salátu</div></div><div class="menu-item-price">160 <span>Kč</span></div></div>
-    <div class="menu-item"><span class="menu-item-num">10</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.u5.name">Falafel Dürüm</div><div class="menu-item-desc" data-i18n="menu.u5.desc">Cizrnové kuličky, salát a dresing</div></div><div class="menu-item-price">130 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">01</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.u1.name">Dürüm BEZ ZELÍ</div><div class="menu-item-desc" data-i18n="menu.u1.desc">Dürüm BEZ ZELÍ rolovaný v turecké tortille s masem dle výběru, rajčaty, okurkou, ledovým salátem a omáčkou dle výběru</div></div><div class="menu-item-price">190 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">02</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.u2.name">Dürüm klasický</div><div class="menu-item-desc" data-i18n="menu.u2.desc">V turecké tortille kuřecí, hovězí nebo mix maso, rajčata, ledový salát, bílé a červené zelí</div></div><div class="menu-item-price">180 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">03</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.u3.name">Dürüm se sýrem</div><div class="menu-item-desc" data-i18n="menu.u3.desc">V turecké tortille kuřecí, hovězí nebo mix maso, sýr, rajčata, ledový salát, bílé a červené zelí</div></div><div class="menu-item-price">200 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">04</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.u4.name">Speciální dürüm</div><div class="menu-item-desc" data-i18n="menu.u4.desc">V turecké tortille velká porce kuřecího, hovězího nebo mix masa</div></div><div class="menu-item-price">220 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">05</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.u5.name">Mega dürüm se sýrem</div><div class="menu-item-desc" data-i18n="menu.u5.desc">V turecké tortille mega porce kuřecího, hovězího nebo mix masa, sýr, rajčata, ledový salát, bílé a červené zelí</div></div><div class="menu-item-price">220 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">06</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.u6.name">Dürüm s hranolkami</div><div class="menu-item-desc" data-i18n="menu.u6.desc">Dürüm rolovaný v turecké tortille s masem dle výběru, rajčaty, hranolkami, ledovým salátem, bílým a červeným zelím a omáčkou dle výběru</div></div><div class="menu-item-price">220 <span>Kč</span></div></div>
   </div>
-  <div class="menu-grid" id="tab-dalsi">
-    <div class="menu-item"><span class="menu-item-num">11</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.k1.name">Kebab Klasický</div><div class="menu-item-desc" data-i18n="menu.k1.desc">Grilované maso s přílohou a omáčkou</div></div><div class="menu-item-price">130 <span>Kč</span></div></div>
-    <div class="menu-item"><span class="menu-item-num">12</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.k2.name">Kebab se Sýrem</div><div class="menu-item-desc" data-i18n="menu.k2.desc">Grilované maso, roztavený sýr, čerstvý salát</div></div><div class="menu-item-price">150 <span>Kč</span></div></div>
-    <div class="menu-item"><span class="menu-item-num">13</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.k3.name">Salát Klasický</div><div class="menu-item-desc" data-i18n="menu.k3.desc">Čerstvá zelenina, dresing dle výběru</div></div><div class="menu-item-price">90 <span>Kč</span></div></div>
-    <div class="menu-item"><span class="menu-item-num">14</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.k4.name">Salát s Masem</div><div class="menu-item-desc" data-i18n="menu.k4.desc">Plný salát s döner masem a dresingem</div></div><div class="menu-item-price">120 <span>Kč</span></div></div>
+
+  <!-- TALÍŘ KEBAB -->
+  <div class="menu-grid" id="tab-talir">
+    <div class="menu-item"><span class="menu-item-num">01</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.t1.name">Talíř kebab s chlebem</div><div class="menu-item-desc" data-i18n="menu.t1.desc">Masa dle výběru, turecký chléb, rajčata, ledový salát, bílé a červené zelí s omáčkou dle výběru</div></div><div class="menu-item-price">200 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">02</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.t2.name">Talíř kebab s hranolky</div><div class="menu-item-desc" data-i18n="menu.t2.desc">Masa dle výběru, hranolky, rajčata, ledový salát, bílé a červené zelí s omáčkou dle výběru</div></div><div class="menu-item-price">200 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">03</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.t3.name">Talíř kebab s rýží</div><div class="menu-item-desc" data-i18n="menu.t3.desc">Masa dle výběru, rýže, rajčata, ledový salát, bílé a červené zelí s omáčkou dle výběru</div></div><div class="menu-item-price">200 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">04</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.t4.name">Mega talíř s chlebem a sýrem</div><div class="menu-item-desc" data-i18n="menu.t4.desc">Velká porce masa dle výběru, turecký chléb, sýr, rajčata, ledový salát, bílé a červené zelí s omáčkou dle výběru</div></div><div class="menu-item-price">220 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">05</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.t5.name">Mega talíř s hranolky a sýrem</div><div class="menu-item-desc" data-i18n="menu.t5.desc">Velká porce masa dle výběru, hranolky, sýr, rajčata, ledový salát, bílé a červené zelí s omáčkou dle výběru</div></div><div class="menu-item-price">220 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">06</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.t6.name">Mega talíř s rýží a sýrem</div><div class="menu-item-desc" data-i18n="menu.t6.desc">Velká porce masa dle výběru, rýže, sýr, rajčata, ledový salát, bílé a červené zelí s omáčkou dle výběru</div></div><div class="menu-item-price">220 <span>Kč</span></div></div>
+  </div>
+
+  <!-- KEBAB BOX -->
+  <div class="menu-grid" id="tab-box">
+    <div class="menu-item"><span class="menu-item-num">01</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.b1.name">Kebab Box s hranolky</div><div class="menu-item-desc" data-i18n="menu.b1.desc">Maso dle výběru, rajčata, ledový salát, bílé a červené zelí s omáčkou dle výběru, podávané s hranolkami</div></div><div class="menu-item-price">150 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">02</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.b2.name">Kebab Box s rýží</div><div class="menu-item-desc" data-i18n="menu.b2.desc">Kuřecí, hovězí nebo mix maso, rýže, rajčata, ledový salát, bílé a červené zelí, bylinkový, česnekový nebo pálivý dresink</div></div><div class="menu-item-price">150 <span>Kč</span></div></div>
+  </div>
+
+  <!-- SALÁTY -->
+  <div class="menu-grid" id="tab-salaty">
+    <div class="menu-item"><span class="menu-item-num">01</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.s2.name">Kuřecí salát</div><div class="menu-item-desc" data-i18n="menu.s2.desc">Ledový salát, rajčata, grilované kuřecí maso</div></div><div class="menu-item-price">150 <span>Kč</span></div></div>
+  </div>
+
+  <!-- VEGETARIAN -->
+  <div class="menu-grid" id="tab-vegetarian">
+    <div class="menu-item"><span class="menu-item-num">01</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.v1.name">Falafel dürüm (Vegetarian)</div><div class="menu-item-desc" data-i18n="menu.v1.desc">V turecké tortille cizrnové kuličky, rajčata, ledový salát, bílé a červené zelí, bylinkový, česnekový nebo pálivý dresink</div></div><div class="menu-item-price">155 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">02</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.v2.name">Halloumi Dürüm (Vegetarian)</div><div class="menu-item-desc" data-i18n="menu.v2.desc">V turecké tortille grilovaný sýr halloumi, rajčata, ledový salát, bílé a červené zelí, bylinkový, česnekový nebo pálivý dresink</div></div><div class="menu-item-price">155 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">03</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.v3.name">Míchaný salát (Vegetarian)</div><div class="menu-item-desc" data-i18n="menu.v3.desc">Míchaná zelenina, ledový salát, rajčata, bílé a červené zelí, sýr</div></div><div class="menu-item-price">135 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">04</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.v4.name">Kebab Box s rýží (Vegetarian)</div><div class="menu-item-desc" data-i18n="menu.v4.desc">Falafel kuličky, rýže, rajčata, ledový salát, bílé a červené zelí, bylinkový nebo česnekový dresink</div></div><div class="menu-item-price">150 <span>Kč</span></div></div>
+  </div>
+
+  <!-- DEZERTY -->
+  <div class="menu-grid" id="tab-dezerty">
+    <div class="menu-item"><span class="menu-item-num">01</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.dz1.name">Baklava 1 ks</div><div class="menu-item-desc" data-i18n="menu.dz1.desc">Sladký orientální dezert z listového těsta s jemnou ořechovou náplní, přelitý sladkým medovým sirupem — křupavý a neodolatelný</div></div><div class="menu-item-price">50 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">02</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.dz2.name">Baklava 3 ks</div><div class="menu-item-desc" data-i18n="menu.dz2.desc">Sladký orientální dezert z listového těsta s jemnou ořechovou náplní, přelitý sladkým medovým sirupem — křupavý a neodolatelný</div></div><div class="menu-item-price">145 <span>Kč</span></div></div>
+  </div>
+
+  <!-- PŘÍLOHY -->
+  <div class="menu-grid" id="tab-prilohy">
+    <div class="menu-item"><span class="menu-item-num">01</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.p1.name">Hranolky</div><div class="menu-item-desc" data-i18n="menu.p1.desc">Křupavé hranolky</div></div><div class="menu-item-price">65 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">02</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.p2.name">Rýže</div><div class="menu-item-desc" data-i18n="menu.p2.desc">Vařená rýže</div></div><div class="menu-item-price">65 <span>Kč</span></div></div>
+  </div>
+
+  <!-- NÁPOJE -->
+  <div class="menu-grid" id="tab-napoje">
+    <div class="menu-item"><span class="menu-item-num">01</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.n1.name">Pepsi 0,5 l</div></div><div class="menu-item-price">50 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">02</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.n2.name">Pepsi Zero Sugar 0,5 l</div></div><div class="menu-item-price">50 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">03</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.n3.name">Mirinda 0,5 l</div></div><div class="menu-item-price">50 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">04</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.n4.name">Mountain Dew 0,5 l</div></div><div class="menu-item-price">50 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">05</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.n5.name">Poctivá malinovka 0,5 l</div></div><div class="menu-item-price">50 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">06</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.n6.name">7UP 0,5 l</div></div><div class="menu-item-price">50 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">07</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.n7.name">Lipton broskev 0,5 l</div></div><div class="menu-item-price">50 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">08</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.n8.name">Lipton green 0,5 l</div></div><div class="menu-item-price">50 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">09</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.n9.name">Pepsi Zero Sugar 0,33 l</div></div><div class="menu-item-price">40 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">10</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.n10.name">7UP Zero Sugar 0,33 l</div></div><div class="menu-item-price">40 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">11</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.n11.name">Dr Pepper 0,33 l</div></div><div class="menu-item-price">40 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">12</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.n12.name">Ayran</div></div><div class="menu-item-price">40 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">13</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.n13.name">Pepsi classic 0,33 l</div></div><div class="menu-item-price">40 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">14</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.n14.name">Mirinda 0,33 l</div></div><div class="menu-item-price">40 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">15</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.n15.name">Voda neperlivá 0,5 l</div><div class="menu-item-desc" data-i18n="menu.n15.desc">Dobrá voda</div></div><div class="menu-item-price">30 <span>Kč</span></div></div>
+    <div class="menu-item"><span class="menu-item-num">16</span><div class="menu-item-info"><div class="menu-item-name" data-i18n="menu.n16.name">Voda perlivá 0,5 l</div><div class="menu-item-desc" data-i18n="menu.n16.desc">Mattoni</div></div><div class="menu-item-price">30 <span>Kč</span></div></div>
   </div>
 </section>
 
@@ -447,7 +371,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:36px 48p
     <span class="section-label" data-i18n="loc.label">Kde nás najdete</span>
     <h2 class="section-title"><span data-i18n="loc.title1">Naše pobočky</span><br><em data-i18n="loc.title2">v Praze</em></h2>
     <div class="locations-grid">
-      <div class="location-card">
+      <div class="location-card"><div class="loc-glow"></div>
         <div class="location-rating">⭐ 4.6 <span style="color:var(--muted);font-size:10px;">(658)</span></div>
         <div class="location-name">Kubánské nám.</div><div class="location-district">Praha 10</div>
         <div class="location-address">Kubánské náměstí, Praha 10</div>
@@ -455,7 +379,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:36px 48p
         <div class="location-services"><span class="service-tag">Dine-in</span><span class="service-tag">Takeaway</span></div>
         <a href="https://maps.google.com/?q=Kubánské+náměstí+Praha+10" target="_blank" class="directions-btn" data-i18n="loc.nav">🗺️ Navigovat</a>
       </div>
-      <div class="location-card">
+      <div class="location-card"><div class="loc-glow"></div>
         <div class="location-rating">⭐ 4.6 <span style="color:var(--muted);font-size:10px;">(486)</span></div>
         <div class="location-name">Moskevská</div><div class="location-district">Vršovice · Praha 10</div>
         <div class="location-address">Moskevská, Vršovice, Praha 10</div>
@@ -463,7 +387,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:36px 48p
         <div class="location-services"><span class="service-tag">Dine-in</span><span class="service-tag">Takeaway</span></div>
         <a href="https://maps.google.com/?q=Moskevská+Vršovice+Praha" target="_blank" class="directions-btn" data-i18n="loc.nav">🗺️ Navigovat</a>
       </div>
-      <div class="location-card">
+      <div class="location-card"><div class="loc-glow"></div>
         <div class="location-rating">⭐ 4.4 <span style="color:var(--muted);font-size:10px;">(917)</span></div>
         <div class="location-name">Košíře</div><div class="location-district">Praha 5 · Košíře</div>
         <div class="location-address">Plzeňská 254/191<br>Praha – Košíře 150 00</div>
@@ -471,12 +395,12 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:36px 48p
         <div class="location-services"><span class="service-tag">Dine-in</span><span class="service-tag">Takeaway</span></div>
         <a href="https://maps.google.com/?q=Plzeňská+254/191+Praha+Košíře" target="_blank" class="directions-btn" data-i18n="loc.nav">🗺️ Navigovat</a>
       </div>
-      <div class="location-card">
+      <div class="location-card"><div class="loc-glow"></div>
         <div class="location-rating">⭐ 4.5 <span style="color:var(--muted);font-size:10px;">(324)</span></div>
         <div class="location-name">Háje</div><div class="location-district">Praha 11 · Háje</div>
-        <div class="location-address">Opatovská 871/23, Háje<br><span style="font-size:11px;color:var(--muted);">vedle OC Háje, u Lili Boty</span></div>
+        <div class="location-address">Opatovská 871/23, Háje<br><span style="font-size:11px;color:#6A5A3A;">vedle OC Háje, u Lili Boty</span></div>
         <div class="location-hours" data-i18n="loc.hours">Po–Ne: 10:00 – 22:00</div>
-        <div class="location-services"><span class="service-tag">Dine-in</span><span class="service-tag">Takeaway</span><span class="service-tag" style="color:var(--teal);border-color:rgba(0,133,122,0.3);">Delivery</span></div>
+        <div class="location-services"><span class="service-tag">Dine-in</span><span class="service-tag">Takeaway</span></div>
         <a href="https://maps.google.com/?q=Opatovská+871/23+Háje+Praha+11" target="_blank" class="directions-btn" data-i18n="loc.nav">🗺️ Navigovat</a>
       </div>
     </div>
@@ -487,7 +411,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:36px 48p
 <section class="about-section" id="o-nas">
   <div class="about-visual">
     <div class="about-box">
-      <div class="about-box-num">10+</div>
+      <div class="about-box-bg"></div>
       <div class="about-quote">
         <span class="about-qmark">"</span>
         <span data-i18n="about.quote">Každé sousto je kousek autentické turecké tradice</span>
@@ -496,7 +420,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:36px 48p
   </div>
   <div class="about-content">
     <span class="section-label" data-i18n="about.label">O nás</span>
-    <h2 class="section-title"><span data-i18n="about.title1">Tradice &</span><br><em data-i18n="about.title2">Vášeň</em></h2>
+    <h2 class="section-title"><span data-i18n="about.title1">Tradice &amp;</span><br><em data-i18n="about.title2">Vášeň</em></h2>
     <p class="about-text" data-i18n="about.text1">Mahir Kebab je více než jen fast food. Jsme rodinná firma, která přináší do Prahy autentické turecké recepty plné charakteru a chuti.</p>
     <p class="about-text" data-i18n="about.text2">Se čtyřmi pobočkami po celé Praze jsme vám vždy blízko — ať jste v Košířích, Vršovicích nebo v Hájích.</p>
     <div class="about-features">
@@ -511,15 +435,16 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:36px 48p
 <!-- CTA CONTACT -->
 <section class="cta-section" id="kontakt">
   <div class="cta-inner">
-    <span class="section-label" style="justify-content:center;display:inline-flex;margin-bottom:12px;color:var(--orange2);" data-i18n="cta.label">Kontakt & Objednávky</span>
-    <h2 class="cta-title"><span data-i18n="cta.title1">Máte hlad?</span><br><em data-i18n="cta.title2">Zavolejte nám!</em></h2>
-    <p class="cta-desc" data-i18n="cta.desc">Přijďte osobně nebo si zarezervujte objednávku dopředu. Rádi vás uvidíme v jedné z našich pražských poboček.</p>
-    <a href="tel:+420702247747" class="btn-phone">📞 +420 702 247 747</a>
+    <span class="section-label" style="justify-content:center;display:inline-flex;margin-bottom:12px;" data-i18n="cta.label">Kontakt &amp; Objednávky</span>
+    <h2 class="cta-title"><span data-i18n="cta.title1">Předobjednejte</span><br><em data-i18n="cta.title2">a přijďte si vyzvednout!</em></h2>
+    <p class="cta-desc" data-i18n="cta.desc">Objednejte předem přes QR stránku a přijďte si pro kebab osobně. Objednávka bude připravena, až dorazíte.</p>
+    <div class="cta-pickup-note" data-i18n="cta.pickup">🚶 Pouze osobní vyzvednutí · Bez dovozu · Připraveno na místě</div>
+    <a href="https://ecopay-nu.vercel.app/" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href,'_blank','noopener,noreferrer');return false;" class="btn-phone" data-i18n="cta.btn">🛍️ Objednat &amp; Vyzvednout</a>
   </div>
   <div class="contact-grid">
     <div class="contact-item"><span class="contact-icon">🕐</span><span class="contact-label" data-i18n="cta.c1.label">Otevírací doba</span><span class="contact-value" data-i18n="cta.c1.value">Po – Ne: 10:00 – 22:00</span></div>
     <div class="contact-item"><span class="contact-icon">📍</span><span class="contact-label" data-i18n="cta.c2.label">Pobočky</span><span class="contact-value" data-i18n="cta.c2.value">Praha 5, Praha 10, Praha 11</span></div>
-    <div class="contact-item"><span class="contact-icon">🍽️</span><span class="contact-label" data-i18n="cta.c3.label">Služby</span><span class="contact-value" data-i18n="cta.c3.value">Dine-in · Takeaway · Delivery</span></div>
+    <div class="contact-item"><span class="contact-icon">🥡</span><span class="contact-label" data-i18n="cta.c3.label">Služby</span><span class="contact-value" data-i18n="cta.c3.value">Dine-in · Takeaway · Předobjednávka</span></div>
   </div>
 </section>
 
@@ -535,32 +460,44 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:36px 48p
 </footer>
 
 <script>
-// ── I18N TRANSLATIONS ──
 const translations = {
   cs: {
-    "nav.menu":"Menu","nav.branches":"Pobočky","nav.about":"O nás","nav.contact":"Kontakt","nav.order":"📞 Objednat",
-    "hero.badge":"⭐ 4.6 hodnocení · 2400+ recenzí · 4 pobočky",
+    "nav.menu":"Menu","nav.branches":"Pobočky","nav.about":"O nás","nav.contact":"Kontakt",
+    "nav.order":"🛍️ Objednat & Vyzvednout",
     "hero.title1":"Autentický","hero.title2":"turecký","hero.title3":"kebab",
     "hero.desc":"Čerstvé ingredience, tradiční receptury a nezaměnitelná chuť každý den. Döner, dürüm, falafel — připraveno přímo pro vás v Praze.",
     "hero.btn1":"🍽️ Zobrazit menu","hero.btn2":"📍 Najít pobočku",
-    "hero.emblem":"Praha · Čerstvé · Tradiční","hero.scroll":"Posunout dolů",
     "stats.rating":"Průměrné hodnocení","stats.reviews":"Recenzí zákazníků","stats.branches":"Pobočky v Praze","stats.price":"Ceny začínají od",
     "menu.label":"Naše nabídka","menu.title1":"Čerstvé menu","menu.title2":"každý den",
-    "menu.tab1":"🥙 Döner kebab","menu.tab2":"🌯 Dürüm kebab","menu.tab3":"🥗 Kebab & Saláty",
-    "menu.d1.name":"Döner Klasický","menu.d1.desc":"Kuřecí nebo hovězí maso, salát, dresing, chléb",
-    "menu.d2.name":"Döner se Sýrem","menu.d2.desc":"Maso, salát, dresing, sýr, chléb",
-    "menu.d3.name":"Speciální Döner","menu.d3.desc":"Jen maso a dresing, chléb",
-    "menu.d4.name":"Mega Döner se Sýrem","menu.d4.desc":"Plná porce — maso, salát, dresing a sýr",
-    "menu.d5.name":"Döner Základní","menu.d5.desc":"Kuřecí nebo hovězí maso",
-    "menu.u1.name":"Dürüm Klasický","menu.u1.desc":"Kuřecí nebo hovězí maso, salát, dresing",
-    "menu.u2.name":"Dürüm se Sýrem","menu.u2.desc":"Plná náplň: maso, salát, dresing a sýr",
-    "menu.u3.name":"Speciální Dürüm","menu.u3.desc":"Jen maso a dresing, sýr",
-    "menu.u4.name":"Mega Dürüm","menu.u4.desc":"Extra velký, plná porce masa a čerstvého salátu",
-    "menu.u5.name":"Falafel Dürüm","menu.u5.desc":"Cizrnové kuličky, salát a dresing",
-    "menu.k1.name":"Kebab Klasický","menu.k1.desc":"Grilované maso s přílohou a omáčkou",
-    "menu.k2.name":"Kebab se Sýrem","menu.k2.desc":"Grilované maso, roztavený sýr, čerstvý salát",
-    "menu.k3.name":"Salát Klasický","menu.k3.desc":"Čerstvá zelenina, dresing dle výběru",
-    "menu.k4.name":"Salát s Masem","menu.k4.desc":"Plný salát s döner masem a dresingem",
+    "menu.tab1":"🥙 Döner kebab","menu.tab2":"🌯 Dürüm kebab","menu.tab3":"🍽️ Talíř kebab","menu.tab4":"📦 Kebab Box","menu.tab5":"🥗 Saláty","menu.tab6":"🍮 Dezerty","menu.tab7":"🍟 Přílohy","menu.tab8":"🥤 Nápoje","menu.tab9":"🌿 Vegetarian",
+    "menu.d1.name":"Döner BEZ ZELÍ","menu.d1.desc":"Döner kebab v tureckém chlebu s masem dle výběru, rajčaty, okurkou, ledovým salátem a omáčkou dle výběru",
+    "menu.d2.name":"Döner klasický","menu.d2.desc":"Kebab v tureckém chlebu — kuřecí, hovězí nebo mix maso, rajčata, ledový salát, bílé a červené zelí",
+    "menu.d3.name":"Döner se sýrem","menu.d3.desc":"Döner kebab se sýrem v tureckém chlebu — kuřecí, hovězí nebo mix maso, rajčata, sýr, ledový salát, bílé a červené zelí",
+    "menu.d4.name":"Speciální döner","menu.d4.desc":"VELKÁ porce kuřecího, hovězího nebo mix masa v tureckém chlebu, bez salátu, jen maso a omáčka",
+    "menu.d5.name":"Mega döner se sýrem","menu.d5.desc":"Mega döner se sýrem v tureckém chlebu — velká porce masa, sýr, rajčata, ledový salát, bílé a červené zelí",
+    "menu.u1.name":"Dürüm BEZ ZELÍ","menu.u1.desc":"Dürüm BEZ ZELÍ rolovaný v turecké tortille s masem dle výběru, rajčaty, okurkou, ledovým salátem a omáčkou dle výběru",
+    "menu.u2.name":"Dürüm klasický","menu.u2.desc":"V turecké tortille kuřecí, hovězí nebo mix maso, rajčata, ledový salát, bílé a červené zelí",
+    "menu.u3.name":"Dürüm se sýrem","menu.u3.desc":"V turecké tortille kuřecí, hovězí nebo mix maso, sýr, rajčata, ledový salát, bílé a červené zelí",
+    "menu.u4.name":"Speciální dürüm","menu.u4.desc":"V turecké tortille velká porce kuřecího, hovězího nebo mix masa",
+    "menu.u5.name":"Mega dürüm se sýrem","menu.u5.desc":"V turecké tortille mega porce kuřecího, hovězího nebo mix masa, sýr, rajčata, ledový salát, bílé a červené zelí",
+    "menu.u6.name":"Dürüm s hranolkami","menu.u6.desc":"Dürüm rolovaný v turecké tortille s masem dle výběru, rajčaty, hranolkami, ledovým salátem a omáčkou dle výběru",
+    "menu.t1.name":"Talíř kebab s chlebem","menu.t1.desc":"Masa dle výběru, turecký chléb, rajčata, ledový salát, bílé a červené zelí s omáčkou dle výběru",
+    "menu.t2.name":"Talíř kebab s hranolky","menu.t2.desc":"Masa dle výběru, hranolky, rajčata, ledový salát, bílé a červené zelí s omáčkou dle výběru",
+    "menu.t3.name":"Talíř kebab s rýží","menu.t3.desc":"Masa dle výběru, rýže, rajčata, ledový salát, bílé a červené zelí s omáčkou dle výběru",
+    "menu.t4.name":"Mega talíř s chlebem a sýrem","menu.t4.desc":"Velká porce masa dle výběru, turecký chléb, sýr, rajčata, ledový salát, bílé a červené zelí s omáčkou dle výběru",
+    "menu.t5.name":"Mega talíř s hranolky a sýrem","menu.t5.desc":"Velká porce masa dle výběru, hranolky, sýr, rajčata, ledový salát, bílé a červené zelí s omáčkou dle výběru",
+    "menu.t6.name":"Mega talíř s rýží a sýrem","menu.t6.desc":"Velká porce masa dle výběru, rýže, sýr, rajčata, ledový salát, bílé a červené zelí s omáčkou dle výběru",
+    "menu.b1.name":"Kebab Box s hranolky","menu.b1.desc":"Maso dle výběru, rajčata, ledový salát, bílé a červené zelí s omáčkou dle výběru, podávané s hranolkami",
+    "menu.b2.name":"Kebab Box s rýží","menu.b2.desc":"Kuřecí, hovězí nebo mix maso, rýže, rajčata, ledový salát, bílé a červené zelí, bylinkový nebo česnekový dresink",
+    "menu.s2.name":"Kuřecí salát","menu.s2.desc":"Ledový salát, rajčata, grilované kuřecí maso",
+    "menu.dz1.name":"Baklava 1 ks","menu.dz1.desc":"Sladký orientální dezert z listového těsta s jemnou ořechovou náplní, přelitý sladkým medovým sirupem",
+    "menu.dz2.name":"Baklava 3 ks","menu.dz2.desc":"Sladký orientální dezert z listového těsta s jemnou ořechovou náplní, přelitý sladkým medovým sirupem",
+    "menu.p1.name":"Hranolky","menu.p1.desc":"Křupavé hranolky",
+    "menu.p2.name":"Rýže","menu.p2.desc":"Vařená rýže",
+    "menu.v1.name":"Falafel dürüm (Vegetarian)","menu.v1.desc":"V turecké tortille cizrnové kuličky, rajčata, ledový salát, bílé a červené zelí, bylinkový nebo česnekový dresink",
+    "menu.v2.name":"Halloumi Dürüm (Vegetarian)","menu.v2.desc":"V turecké tortille grilovaný sýr halloumi, rajčata, ledový salát, bílé a červené zelí, bylinkový nebo pálivý dresink",
+    "menu.v3.name":"Míchaný salát (Vegetarian)","menu.v3.desc":"Míchaná zelenina, ledový salát, rajčata, bílé a červené zelí, sýr",
+    "menu.v4.name":"Kebab Box s rýží (Vegetarian)","menu.v4.desc":"Falafel kuličky, rýže, rajčata, ledový salát, bílé a červené zelí, bylinkový nebo česnekový dresink",
     "loc.label":"Kde nás najdete","loc.title1":"Naše pobočky","loc.title2":"v Praze",
     "loc.hours":"Po–Ne: 10:00 – 22:00","loc.nav":"🗺️ Navigovat",
     "about.label":"O nás","about.title1":"Tradice &","about.title2":"Vášeň",
@@ -571,36 +508,52 @@ const translations = {
     "about.f2.label":"Čerstvé ingredience","about.f2.text":"Zelenina a saláty připraveny denně",
     "about.f3.label":"Rychlá příprava","about.f3.text":"Váš kebab připraven za minuty",
     "about.f4.label":"Skvělá cena","about.f4.text":"Vynikající jídlo od 100 Kč",
-    "cta.label":"Kontakt & Objednávky","cta.title1":"Máte hlad?","cta.title2":"Zavolejte nám!",
-    "cta.desc":"Přijďte osobně nebo si zarezervujte objednávku dopředu. Rádi vás uvidíme v jedné z našich pražských poboček.",
+    "cta.btn":"🛍️ Objednat & Vyzvednout",
+    "cta.label":"Kontakt & Objednávky",
+    "cta.title1":"Objednejte","cta.title2":"a vyzvedněte si!",
+    "cta.desc":"Objednejte přes naši QR stránku a vyzvedněte si kebab osobně. Připravíme ho, až přijdete.",
+    "cta.pickup":"🚶 Pouze osobní vyzvednutí · Bez rozvozu · Čerstvě připraveno",
     "cta.c1.label":"Otevírací doba","cta.c1.value":"Po – Ne: 10:00 – 22:00",
     "cta.c2.label":"Pobočky","cta.c2.value":"Praha 5, Praha 10, Praha 11",
-    "cta.c3.label":"Služby","cta.c3.value":"Dine-in · Takeaway · Delivery"
+    "cta.c3.label":"Služby","cta.c3.value":"Dine-in · Takeaway · Objednat & Vyzvednout"
   },
   en: {
-    "nav.menu":"Menu","nav.branches":"Locations","nav.about":"About","nav.contact":"Contact","nav.order":"📞 Order Now",
-    "hero.badge":"⭐ 4.6 rating · 2400+ reviews · 4 locations",
+    "nav.menu":"Menu","nav.branches":"Locations","nav.about":"About","nav.contact":"Contact",
+    "nav.order":"🛍️ Order & Collect",
     "hero.title1":"Authentic","hero.title2":"Turkish","hero.title3":"kebab",
     "hero.desc":"Fresh ingredients, traditional recipes and unmistakable taste every day. Döner, dürüm, falafel — prepared just for you in Prague.",
     "hero.btn1":"🍽️ View menu","hero.btn2":"📍 Find location",
-    "hero.emblem":"Prague · Fresh · Traditional","hero.scroll":"Scroll down",
     "stats.rating":"Average rating","stats.reviews":"Customer reviews","stats.branches":"Locations in Prague","stats.price":"Prices from",
     "menu.label":"Our offer","menu.title1":"Fresh menu","menu.title2":"every day",
-    "menu.tab1":"🥙 Döner kebab","menu.tab2":"🌯 Dürüm kebab","menu.tab3":"🥗 Kebab & Salads",
-    "menu.d1.name":"Classic Döner","menu.d1.desc":"Chicken or beef, salad, dressing, bread",
-    "menu.d2.name":"Döner with Cheese","menu.d2.desc":"Meat, salad, dressing, cheese, bread",
-    "menu.d3.name":"Special Döner","menu.d3.desc":"Meat and dressing only, bread",
-    "menu.d4.name":"Mega Döner with Cheese","menu.d4.desc":"Full portion — meat, salad, dressing and cheese",
-    "menu.d5.name":"Basic Döner","menu.d5.desc":"Chicken or beef meat",
-    "menu.u1.name":"Classic Dürüm","menu.u1.desc":"Chicken or beef, salad, dressing",
-    "menu.u2.name":"Dürüm with Cheese","menu.u2.desc":"Full filling: meat, salad, dressing and cheese",
-    "menu.u3.name":"Special Dürüm","menu.u3.desc":"Meat and dressing, cheese",
-    "menu.u4.name":"Mega Dürüm","menu.u4.desc":"Extra large, full portion of meat and fresh salad",
-    "menu.u5.name":"Falafel Dürüm","menu.u5.desc":"Chickpea balls, salad and dressing",
-    "menu.k1.name":"Classic Kebab","menu.k1.desc":"Grilled meat with side and sauce",
-    "menu.k2.name":"Kebab with Cheese","menu.k2.desc":"Grilled meat, melted cheese, fresh salad",
-    "menu.k3.name":"Classic Salad","menu.k3.desc":"Fresh vegetables, dressing of your choice",
-    "menu.k4.name":"Salad with Meat","menu.k4.desc":"Full salad with döner meat and dressing",
+    "menu.tab1":"🥙 Döner kebab","menu.tab2":"🌯 Dürüm kebab","menu.tab3":"🍽️ Kebab plate","menu.tab4":"📦 Kebab Box","menu.tab5":"🥗 Salads","menu.tab6":"🍮 Desserts","menu.tab7":"🍟 Sides","menu.tab8":"🥤 Drinks","menu.tab9":"🌿 Vegetarian",
+    "menu.d1.name":"Döner WITHOUT CABBAGE","menu.d1.desc":"Döner kebab in Turkish bread with meat of choice, tomatoes, cucumber, iceberg lettuce and sauce of choice",
+    "menu.d2.name":"Classic döner","menu.d2.desc":"Kebab in Turkish bread — chicken, beef or mix meat, tomatoes, iceberg lettuce, white and red cabbage",
+    "menu.d3.name":"Döner with cheese","menu.d3.desc":"Döner kebab with cheese in Turkish bread — chicken, beef or mix meat, tomatoes, cheese, iceberg lettuce, white and red cabbage",
+    "menu.d4.name":"Special döner","menu.d4.desc":"LARGE portion of chicken, beef or mix meat in Turkish bread, no salad, just meat and sauce",
+    "menu.d5.name":"Mega döner with cheese","menu.d5.desc":"Mega döner with cheese in Turkish bread — large portion of meat, cheese, tomatoes, iceberg lettuce, white and red cabbage",
+    "menu.u1.name":"Dürüm WITHOUT CABBAGE","menu.u1.desc":"Dürüm WITHOUT CABBAGE rolled in Turkish tortilla with meat of choice, tomatoes, cucumber, iceberg lettuce and sauce of choice",
+    "menu.u2.name":"Classic dürüm","menu.u2.desc":"In Turkish tortilla — chicken, beef or mix meat, tomatoes, iceberg lettuce, white and red cabbage",
+    "menu.u3.name":"Dürüm with cheese","menu.u3.desc":"In Turkish tortilla — chicken, beef or mix meat, cheese, tomatoes, iceberg lettuce, white and red cabbage",
+    "menu.u4.name":"Special dürüm","menu.u4.desc":"In Turkish tortilla — large portion of chicken, beef or mix meat",
+    "menu.u5.name":"Mega dürüm with cheese","menu.u5.desc":"In Turkish tortilla — mega portion of chicken, beef or mix meat, cheese, tomatoes, iceberg lettuce, white and red cabbage",
+    "menu.u6.name":"Dürüm with fries","menu.u6.desc":"Dürüm rolled in Turkish tortilla with meat of choice, tomatoes, fries, iceberg lettuce and sauce of choice",
+    "menu.t1.name":"Kebab plate with bread","menu.t1.desc":"Meat of choice, Turkish bread, tomatoes, iceberg lettuce, white and red cabbage with sauce of choice",
+    "menu.t2.name":"Kebab plate with fries","menu.t2.desc":"Meat of choice, fries, tomatoes, iceberg lettuce, white and red cabbage with sauce of choice",
+    "menu.t3.name":"Kebab plate with rice","menu.t3.desc":"Meat of choice, rice, tomatoes, iceberg lettuce, white and red cabbage with sauce of choice",
+    "menu.t4.name":"Mega plate with bread and cheese","menu.t4.desc":"Large portion of meat, Turkish bread, cheese, tomatoes, iceberg lettuce, white and red cabbage with sauce of choice",
+    "menu.t5.name":"Mega plate with fries and cheese","menu.t5.desc":"Large portion of meat, fries, cheese, tomatoes, iceberg lettuce, white and red cabbage with sauce of choice",
+    "menu.t6.name":"Mega plate with rice and cheese","menu.t6.desc":"Large portion of meat, rice, cheese, tomatoes, iceberg lettuce, white and red cabbage with sauce of choice",
+    "menu.b1.name":"Kebab Box with fries","menu.b1.desc":"Meat of choice, tomatoes, iceberg lettuce, white and red cabbage with sauce of choice, served with fries",
+    "menu.b2.name":"Kebab Box with rice","menu.b2.desc":"Chicken, beef or mix meat, rice, tomatoes, iceberg lettuce, white and red cabbage, herb or garlic dressing",
+    "menu.s2.name":"Chicken salad","menu.s2.desc":"Iceberg lettuce, tomatoes, grilled chicken",
+    "menu.dz1.name":"Baklava 1 pc","menu.dz1.desc":"Sweet oriental dessert made from filo pastry with a delicate nut filling, drizzled with sweet honey syrup",
+    "menu.dz2.name":"Baklava 3 pcs","menu.dz2.desc":"Sweet oriental dessert made from filo pastry with a delicate nut filling, drizzled with sweet honey syrup",
+    "menu.p1.name":"Fries","menu.p1.desc":"Crispy fries",
+    "menu.p2.name":"Rice","menu.p2.desc":"Cooked rice",
+    "menu.v1.name":"Falafel dürüm (Vegetarian)","menu.v1.desc":"In Turkish tortilla — chickpea balls, tomatoes, iceberg lettuce, white and red cabbage, herb or garlic dressing",
+    "menu.v2.name":"Halloumi Dürüm (Vegetarian)","menu.v2.desc":"In Turkish tortilla — grilled halloumi cheese, tomatoes, iceberg lettuce, white and red cabbage, herb or spicy dressing",
+    "menu.v3.name":"Mixed salad (Vegetarian)","menu.v3.desc":"Mixed vegetables, iceberg lettuce, tomatoes, white and red cabbage, cheese",
+    "menu.v4.name":"Kebab Box with rice (Vegetarian)","menu.v4.desc":"Falafel balls, rice, tomatoes, iceberg lettuce, white and red cabbage, herb or garlic dressing",
     "loc.label":"Where to find us","loc.title1":"Our locations","loc.title2":"in Prague",
     "loc.hours":"Mon–Sun: 10:00 – 22:00","loc.nav":"🗺️ Navigate",
     "about.label":"About us","about.title1":"Tradition &","about.title2":"Passion",
@@ -611,36 +564,52 @@ const translations = {
     "about.f2.label":"Fresh ingredients","about.f2.text":"Vegetables and salads prepared daily",
     "about.f3.label":"Fast preparation","about.f3.text":"Your kebab ready in minutes",
     "about.f4.label":"Great price","about.f4.text":"Excellent food from 100 CZK",
-    "cta.label":"Contact & Orders","cta.title1":"Hungry?","cta.title2":"Give us a call!",
-    "cta.desc":"Come in person or pre-order. We look forward to seeing you at one of our Prague locations.",
+    "cta.btn":"🛍️ Order & Collect",
+    "cta.label":"Contact & Orders",
+    "cta.title1":"Order online","cta.title2":"& collect in store!",
+    "cta.desc":"Order via our QR page and collect your kebab in person. We'll have it ready when you arrive.",
+    "cta.pickup":"🚶 Collect in store only · No delivery · Made fresh on site",
     "cta.c1.label":"Opening hours","cta.c1.value":"Mon – Sun: 10:00 – 22:00",
     "cta.c2.label":"Locations","cta.c2.value":"Prague 5, Prague 10, Prague 11",
-    "cta.c3.label":"Services","cta.c3.value":"Dine-in · Takeaway · Delivery"
+    "cta.c3.label":"Services","cta.c3.value":"Dine-in · Takeaway · Order & Collect"
   },
   de: {
-    "nav.menu":"Speisekarte","nav.branches":"Standorte","nav.about":"Über uns","nav.contact":"Kontakt","nav.order":"📞 Bestellen",
-    "hero.badge":"⭐ 4.6 Bewertung · 2400+ Rezensionen · 4 Standorte",
+    "nav.menu":"Speisekarte","nav.branches":"Standorte","nav.about":"Über uns","nav.contact":"Kontakt",
+    "nav.order":"🛍️ Bestellen & Abholen",
     "hero.title1":"Authentischer","hero.title2":"türkischer","hero.title3":"Kebab",
     "hero.desc":"Frische Zutaten, traditionelle Rezepte und unverwechselbarer Geschmack jeden Tag. Döner, Dürüm, Falafel — frisch für Sie in Prag zubereitet.",
     "hero.btn1":"🍽️ Speisekarte","hero.btn2":"📍 Standort finden",
-    "hero.emblem":"Prag · Frisch · Traditionell","hero.scroll":"Nach unten scrollen",
     "stats.rating":"Durchschnittsbewertung","stats.reviews":"Kundenbewertungen","stats.branches":"Standorte in Prag","stats.price":"Preise ab",
     "menu.label":"Unser Angebot","menu.title1":"Frisches Menü","menu.title2":"jeden Tag",
-    "menu.tab1":"🥙 Döner Kebab","menu.tab2":"🌯 Dürüm Kebab","menu.tab3":"🥗 Kebab & Salate",
-    "menu.d1.name":"Klassischer Döner","menu.d1.desc":"Hähnchen oder Rindfleisch, Salat, Soße, Brot",
-    "menu.d2.name":"Döner mit Käse","menu.d2.desc":"Fleisch, Salat, Soße, Käse, Brot",
-    "menu.d3.name":"Spezial Döner","menu.d3.desc":"Nur Fleisch und Soße, Brot",
-    "menu.d4.name":"Mega Döner mit Käse","menu.d4.desc":"Volle Portion — Fleisch, Salat, Soße und Käse",
-    "menu.d5.name":"Basis Döner","menu.d5.desc":"Hähnchen oder Rindfleisch",
-    "menu.u1.name":"Klassischer Dürüm","menu.u1.desc":"Hähnchen oder Rind, Salat, Soße",
-    "menu.u2.name":"Dürüm mit Käse","menu.u2.desc":"Volle Füllung: Fleisch, Salat, Soße und Käse",
-    "menu.u3.name":"Spezial Dürüm","menu.u3.desc":"Nur Fleisch und Soße, Käse",
-    "menu.u4.name":"Mega Dürüm","menu.u4.desc":"Extra groß, volle Portion Fleisch und frischer Salat",
-    "menu.u5.name":"Falafel Dürüm","menu.u5.desc":"Kichererbsenbällchen, Salat und Soße",
-    "menu.k1.name":"Klassischer Kebab","menu.k1.desc":"Gegrilltes Fleisch mit Beilage und Soße",
-    "menu.k2.name":"Kebab mit Käse","menu.k2.desc":"Gegrilltes Fleisch, geschmolzener Käse, frischer Salat",
-    "menu.k3.name":"Klassischer Salat","menu.k3.desc":"Frisches Gemüse, Soße nach Wahl",
-    "menu.k4.name":"Salat mit Fleisch","menu.k4.desc":"Voller Salat mit Dönerfleisch und Soße",
+    "menu.tab1":"🥙 Döner Kebab","menu.tab2":"🌯 Dürüm Kebab","menu.tab3":"🍽️ Kebab Teller","menu.tab4":"📦 Kebab Box","menu.tab5":"🥗 Salate","menu.tab6":"🍮 Desserts","menu.tab7":"🍟 Beilagen","menu.tab8":"🥤 Getränke","menu.tab9":"🌿 Vegetarisch",
+    "menu.d1.name":"Döner OHNE KOHL","menu.d1.desc":"Döner Kebab im türkischen Brot mit Fleisch nach Wahl, Tomaten, Gurke, Eisbergsalat und Soße nach Wahl",
+    "menu.d2.name":"Klassischer Döner","menu.d2.desc":"Kebab im türkischen Brot — Hähnchen, Rind oder Mix, Tomaten, Eisbergsalat, weißer und roter Kohl",
+    "menu.d3.name":"Döner mit Käse","menu.d3.desc":"Döner Kebab mit Käse im türkischen Brot — Hähnchen, Rind oder Mix, Tomaten, Käse, Eisbergsalat, weißer und roter Kohl",
+    "menu.d4.name":"Spezial Döner","menu.d4.desc":"GROSSE Portion Hähnchen, Rind oder Mix im türkischen Brot, ohne Salat, nur Fleisch und Soße",
+    "menu.d5.name":"Mega Döner mit Käse","menu.d5.desc":"Mega Döner mit Käse im türkischen Brot — große Portion Fleisch, Käse, Tomaten, Eisbergsalat, weißer und roter Kohl",
+    "menu.u1.name":"Dürüm OHNE KOHL","menu.u1.desc":"Dürüm OHNE KOHL gerollt in türkischer Tortilla mit Fleisch nach Wahl, Tomaten, Gurke, Eisbergsalat und Soße nach Wahl",
+    "menu.u2.name":"Klassischer Dürüm","menu.u2.desc":"In türkischer Tortilla — Hähnchen, Rind oder Mix, Tomaten, Eisbergsalat, weißer und roter Kohl",
+    "menu.u3.name":"Dürüm mit Käse","menu.u3.desc":"In türkischer Tortilla — Hähnchen, Rind oder Mix, Käse, Tomaten, Eisbergsalat, weißer und roter Kohl",
+    "menu.u4.name":"Spezial Dürüm","menu.u4.desc":"In türkischer Tortilla — große Portion Hähnchen, Rind oder Mix",
+    "menu.u5.name":"Mega Dürüm mit Käse","menu.u5.desc":"In türkischer Tortilla — mega Portion Fleisch, Käse, Tomaten, Eisbergsalat, weißer und roter Kohl",
+    "menu.u6.name":"Dürüm mit Pommes","menu.u6.desc":"Dürüm gerollt in türkischer Tortilla mit Fleisch nach Wahl, Tomaten, Pommes, Eisbergsalat und Soße nach Wahl",
+    "menu.t1.name":"Kebab Teller mit Brot","menu.t1.desc":"Fleisch nach Wahl, türkisches Brot, Tomaten, Eisbergsalat, weißer und roter Kohl mit Soße nach Wahl",
+    "menu.t2.name":"Kebab Teller mit Pommes","menu.t2.desc":"Fleisch nach Wahl, Pommes, Tomaten, Eisbergsalat, weißer und roter Kohl mit Soße nach Wahl",
+    "menu.t3.name":"Kebab Teller mit Reis","menu.t3.desc":"Fleisch nach Wahl, Reis, Tomaten, Eisbergsalat, weißer und roter Kohl mit Soße nach Wahl",
+    "menu.t4.name":"Mega Teller mit Brot und Käse","menu.t4.desc":"Große Portion Fleisch, türkisches Brot, Käse, Tomaten, Eisbergsalat, weißer und roter Kohl mit Soße nach Wahl",
+    "menu.t5.name":"Mega Teller mit Pommes und Käse","menu.t5.desc":"Große Portion Fleisch, Pommes, Käse, Tomaten, Eisbergsalat, weißer und roter Kohl mit Soße nach Wahl",
+    "menu.t6.name":"Mega Teller mit Reis und Käse","menu.t6.desc":"Große Portion Fleisch, Reis, Käse, Tomaten, Eisbergsalat, weißer und roter Kohl mit Soße nach Wahl",
+    "menu.b1.name":"Kebab Box mit Pommes","menu.b1.desc":"Fleisch nach Wahl, Tomaten, Eisbergsalat, weißer und roter Kohl mit Soße nach Wahl, serviert mit Pommes",
+    "menu.b2.name":"Kebab Box mit Reis","menu.b2.desc":"Hähnchen, Rind oder Mix, Reis, Tomaten, Eisbergsalat, weißer und roter Kohl, Kräuter- oder Knoblauchsoße",
+    "menu.s2.name":"Hähnchensalat","menu.s2.desc":"Eisbergsalat, Tomaten, gegrilltes Hähnchen",
+    "menu.dz1.name":"Baklava 1 Stk","menu.dz1.desc":"Süßes orientalisches Dessert aus Blätterteig mit feiner Nussfüllung, übergossen mit süßem Honigsirup",
+    "menu.dz2.name":"Baklava 3 Stk","menu.dz2.desc":"Süßes orientalisches Dessert aus Blätterteig mit feiner Nussfüllung, übergossen mit süßem Honigsirup",
+    "menu.p1.name":"Pommes frites","menu.p1.desc":"Knusprige Pommes",
+    "menu.p2.name":"Reis","menu.p2.desc":"Gekochter Reis",
+    "menu.v1.name":"Falafel Dürüm (Vegetarisch)","menu.v1.desc":"In türkischer Tortilla — Kichererbsenbällchen, Tomaten, Eisbergsalat, weißer und roter Kohl, Kräuter- oder Knoblauchsoße",
+    "menu.v2.name":"Halloumi Dürüm (Vegetarisch)","menu.v2.desc":"In türkischer Tortilla — gegrillter Halloumi-Käse, Tomaten, Eisbergsalat, weißer und roter Kohl, Kräuter- oder scharfe Soße",
+    "menu.v3.name":"Gemischter Salat (Vegetarisch)","menu.v3.desc":"Gemischtes Gemüse, Eisbergsalat, Tomaten, weißer und roter Kohl, Käse",
+    "menu.v4.name":"Kebab Box mit Reis (Vegetarisch)","menu.v4.desc":"Falafel-Bällchen, Reis, Tomaten, Eisbergsalat, weißer und roter Kohl, Kräuter- oder Knoblauchsoße",
     "loc.label":"Wo Sie uns finden","loc.title1":"Unsere Standorte","loc.title2":"in Prag",
     "loc.hours":"Mo–So: 10:00 – 22:00","loc.nav":"🗺️ Navigation",
     "about.label":"Über uns","about.title1":"Tradition &","about.title2":"Leidenschaft",
@@ -651,36 +620,52 @@ const translations = {
     "about.f2.label":"Frische Zutaten","about.f2.text":"Gemüse und Salate täglich zubereitet",
     "about.f3.label":"Schnelle Zubereitung","about.f3.text":"Ihr Kebab in wenigen Minuten fertig",
     "about.f4.label":"Toller Preis","about.f4.text":"Ausgezeichnetes Essen ab 100 CZK",
-    "cta.label":"Kontakt & Bestellungen","cta.title1":"Hunger?","cta.title2":"Rufen Sie uns an!",
-    "cta.desc":"Kommen Sie persönlich oder bestellen Sie im Voraus. Wir freuen uns, Sie in einer unserer Prager Filialen zu sehen.",
+    "cta.btn":"🛍️ Bestellen & Abholen",
+    "cta.label":"Kontakt & Bestellungen",
+    "cta.title1":"Online bestellen","cta.title2":"& selbst abholen!",
+    "cta.desc":"Bestellen Sie über unsere QR-Seite und holen Sie Ihren Kebab persönlich ab. Ihre Bestellung ist fertig, wenn Sie ankommen.",
+    "cta.pickup":"🚶 Nur Selbstabholung · Keine Lieferung · Frisch vor Ort",
     "cta.c1.label":"Öffnungszeiten","cta.c1.value":"Mo – So: 10:00 – 22:00",
     "cta.c2.label":"Standorte","cta.c2.value":"Prag 5, Prag 10, Prag 11",
-    "cta.c3.label":"Leistungen","cta.c3.value":"Dine-in · Takeaway · Lieferung"
+    "cta.c3.label":"Leistungen","cta.c3.value":"Dine-in · Takeaway · Bestellen & Abholen"
   },
   ru: {
-    "nav.menu":"Меню","nav.branches":"Адреса","nav.about":"О нас","nav.contact":"Контакты","nav.order":"📞 Заказать",
-    "hero.badge":"⭐ 4.6 рейтинг · 2400+ отзывов · 4 точки",
+    "nav.menu":"Меню","nav.branches":"Адреса","nav.about":"О нас","nav.contact":"Контакты",
+    "nav.order":"🛍️ Заказать & Забрать",
     "hero.title1":"Настоящий","hero.title2":"турецкий","hero.title3":"кебаб",
     "hero.desc":"Свежие ингредиенты, традиционные рецепты и неповторимый вкус каждый день. Донер, дюрюм, фалафель — приготовлено специально для вас в Праге.",
     "hero.btn1":"🍽️ Смотреть меню","hero.btn2":"📍 Найти точку",
-    "hero.emblem":"Прага · Свежее · Традиционное","hero.scroll":"Прокрутить вниз",
     "stats.rating":"Средняя оценка","stats.reviews":"Отзывов клиентов","stats.branches":"Точки в Праге","stats.price":"Цены от",
-    "menu.label":"Наше предложение","menu.title1":"Свежее меню","menu.title2":"каждый день",
-    "menu.tab1":"🥙 Донер кебаб","menu.tab2":"🌯 Дюрюм кебаб","menu.tab3":"🥗 Кебаб & Салаты",
-    "menu.d1.name":"Классический донер","menu.d1.desc":"Курица или говядина, салат, соус, хлеб",
-    "menu.d2.name":"Донер с сыром","menu.d2.desc":"Мясо, салат, соус, сыр, хлеб",
-    "menu.d3.name":"Специальный донер","menu.d3.desc":"Только мясо и соус, хлеб",
-    "menu.d4.name":"Мега донер с сыром","menu.d4.desc":"Полная порция — мясо, салат, соус и сыр",
-    "menu.d5.name":"Базовый донер","menu.d5.desc":"Куриное или говяжье мясо",
-    "menu.u1.name":"Классический дюрюм","menu.u1.desc":"Курица или говядина, салат, соус",
-    "menu.u2.name":"Дюрюм с сыром","menu.u2.desc":"Полная начинка: мясо, салат, соус и сыр",
-    "menu.u3.name":"Специальный дюрюм","menu.u3.desc":"Только мясо и соус, сыр",
-    "menu.u4.name":"Мега дюрюм","menu.u4.desc":"Очень большой, полная порция мяса и свежего салата",
-    "menu.u5.name":"Фалафель дюрюм","menu.u5.desc":"Нутовые шарики, салат и соус",
-    "menu.k1.name":"Классический кебаб","menu.k1.desc":"Жареное мясо с гарниром и соусом",
-    "menu.k2.name":"Кебаб с сыром","menu.k2.desc":"Жареное мясо, расплавленный сыр, свежий салат",
-    "menu.k3.name":"Классический салат","menu.k3.desc":"Свежие овощи, соус на выбор",
-    "menu.k4.name":"Салат с мясом","menu.k4.desc":"Полный салат с мясом донера и соусом",
+    "menu.label":"Наше меню","menu.title1":"Свежее меню","menu.title2":"каждый день",
+    "menu.tab1":"🥙 Донер кебаб","menu.tab2":"🌯 Дюрюм кебаб","menu.tab3":"🍽️ Тарелка кебаб","menu.tab4":"📦 Kebab Box","menu.tab5":"🥗 Салаты","menu.tab6":"🍮 Десерты","menu.tab7":"🍟 Гарниры","menu.tab8":"🥤 Напитки","menu.tab9":"🌿 Вегетарианское",
+    "menu.d1.name":"Донер БЕЗ КАПУСТЫ","menu.d1.desc":"Донер кебаб в турецком хлебе с мясом на выбор, помидорами, огурцом, листовым салатом и соусом на выбор",
+    "menu.d2.name":"Классический донер","menu.d2.desc":"Кебаб в турецком хлебе — курица, говядина или микс, помидоры, листовой салат, белая и красная капуста",
+    "menu.d3.name":"Донер с сыром","menu.d3.desc":"Донер кебаб с сыром в турецком хлебе — курица, говядина или микс, помидоры, сыр, листовой салат, белая и красная капуста",
+    "menu.d4.name":"Специальный донер","menu.d4.desc":"БОЛЬШАЯ порция курицы, говядины или микса в турецком хлебе, без салата, только мясо и соус",
+    "menu.d5.name":"Мега донер с сыром","menu.d5.desc":"Мега донер с сыром в турецком хлебе — большая порция мяса, сыр, помидоры, листовой салат, белая и красная капуста",
+    "menu.u1.name":"Дюрюм БЕЗ КАПУСТЫ","menu.u1.desc":"Дюрюм БЕЗ КАПУСТЫ в турецкой тортилье с мясом на выбор, помидорами, огурцом, листовым салатом и соусом на выбор",
+    "menu.u2.name":"Классический дюрюм","menu.u2.desc":"В турецкой тортилье — курица, говядина или микс, помидоры, листовой салат, белая и красная капуста",
+    "menu.u3.name":"Дюрюм с сыром","menu.u3.desc":"В турецкой тортилье — курица, говядина или микс, сыр, помидоры, листовой салат, белая и красная капуста",
+    "menu.u4.name":"Специальный дюрюм","menu.u4.desc":"В турецкой тортилье — большая порция курицы, говядины или микса",
+    "menu.u5.name":"Мега дюрюм с сыром","menu.u5.desc":"В турецкой тортилье — мега порция мяса, сыр, помидоры, листовой салат, белая и красная капуста",
+    "menu.u6.name":"Дюрюм с картофелем фри","menu.u6.desc":"Дюрюм в турецкой тортилье с мясом на выбор, помидорами, картофелем фри, листовым салатом и соусом на выбор",
+    "menu.t1.name":"Тарелка кебаб с хлебом","menu.t1.desc":"Мясо на выбор, турецкий хлеб, помидоры, листовой салат, белая и красная капуста с соусом на выбор",
+    "menu.t2.name":"Тарелка кебаб с картофелем фри","menu.t2.desc":"Мясо на выбор, картофель фри, помидоры, листовой салат, белая и красная капуста с соусом на выбор",
+    "menu.t3.name":"Тарелка кебаб с рисом","menu.t3.desc":"Мясо на выбор, рис, помидоры, листовой салат, белая и красная капуста с соусом на выбор",
+    "menu.t4.name":"Мега тарелка с хлебом и сыром","menu.t4.desc":"Большая порция мяса, турецкий хлеб, сыр, помидоры, листовой салат, белая и красная капуста с соусом на выбор",
+    "menu.t5.name":"Мега тарелка с картофелем и сыром","menu.t5.desc":"Большая порция мяса, картофель фри, сыр, помидоры, листовой салат, белая и красная капуста с соусом на выбор",
+    "menu.t6.name":"Мега тарелка с рисом и сыром","menu.t6.desc":"Большая порция мяса, рис, сыр, помидоры, листовой салат, белая и красная капуста с соусом на выбор",
+    "menu.b1.name":"Kebab Box с картофелем фри","menu.b1.desc":"Мясо на выбор, помидоры, листовой салат, белая и красная капуста с соусом на выбор, подаётся с картофелем фри",
+    "menu.b2.name":"Kebab Box с рисом","menu.b2.desc":"Курица, говядина или микс, рис, помидоры, листовой салат, белая и красная капуста, травяной или чесночный соус",
+    "menu.s2.name":"Куриный салат","menu.s2.desc":"Листовой салат, помидоры, жареная курица",
+    "menu.dz1.name":"Пахлава 1 шт","menu.dz1.desc":"Сладкий восточный десерт из слоёного теста с нежной ореховой начинкой, политый сладким медовым сиропом",
+    "menu.dz2.name":"Пахлава 3 шт","menu.dz2.desc":"Сладкий восточный десерт из слоёного теста с нежной ореховой начинкой, политый сладким медовым сиропом",
+    "menu.p1.name":"Картофель фри","menu.p1.desc":"Хрустящий картофель фри",
+    "menu.p2.name":"Рис","menu.p2.desc":"Варёный рис",
+    "menu.v1.name":"Фалафель дюрюм (Вегетарианский)","menu.v1.desc":"В турецкой тортилье — нутовые шарики, помидоры, листовой салат, белая и красная капуста, травяной или чесночный соус",
+    "menu.v2.name":"Халлуми Дюрюм (Вегетарианский)","menu.v2.desc":"В турецкой тортилье — жареный сыр халлуми, помидоры, листовой салат, белая и красная капуста, травяной или острый соус",
+    "menu.v3.name":"Смешанный салат (Вегетарианский)","menu.v3.desc":"Смешанные овощи, листовой салат, помидоры, белая и красная капуста, сыр",
+    "menu.v4.name":"Kebab Box с рисом (Вегетарианский)","menu.v4.desc":"Нутовые шарики, рис, помидоры, листовой салат, белая и красная капуста, травяной или чесночный соус",
     "loc.label":"Где нас найти","loc.title1":"Наши адреса","loc.title2":"в Праге",
     "loc.hours":"Пн–Вс: 10:00 – 22:00","loc.nav":"🗺️ Маршрут",
     "about.label":"О нас","about.title1":"Традиции &","about.title2":"Страсть",
@@ -691,11 +676,14 @@ const translations = {
     "about.f2.label":"Свежие ингредиенты","about.f2.text":"Овощи и салаты готовятся ежедневно",
     "about.f3.label":"Быстрое приготовление","about.f3.text":"Ваш кебаб готов за несколько минут",
     "about.f4.label":"Отличная цена","about.f4.text":"Превосходная еда от 100 крон",
-    "cta.label":"Контакты & Заказы","cta.title1":"Проголодались?","cta.title2":"Позвоните нам!",
-    "cta.desc":"Приходите лично или сделайте предварительный заказ. Будем рады видеть вас в одном из наших заведений.",
+    "cta.btn":"🛍️ Заказать & Забрать",
+    "cta.label":"Контакты & Заказы",
+    "cta.title1":"Заказывайте онлайн","cta.title2":"и заберите сами!",
+    "cta.desc":"Оформите заказ через нашу QR-страницу и заберите кебаб лично. Всё будет готово к вашему приходу.",
+    "cta.pickup":"🚶 Только самовывоз · Без доставки · Свежее на месте",
     "cta.c1.label":"Часы работы","cta.c1.value":"Пн – Вс: 10:00 – 22:00",
     "cta.c2.label":"Адреса","cta.c2.value":"Прага 5, Прага 10, Прага 11",
-    "cta.c3.label":"Услуги","cta.c3.value":"В заведении · С собой · Доставка"
+    "cta.c3.label":"Услуги","cta.c3.value":"В заведении · С собой · Заказать & Забрать"
   }
 };
 
@@ -727,12 +715,14 @@ function smoothTo(id, e) {
   if (el) window.scrollTo({ top: el.offsetTop - 68, behavior: 'smooth' });
   closeMob();
 }
+
 function switchTab(id, btn) {
   document.querySelectorAll('.menu-grid').forEach(g => g.classList.remove('active'));
   document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
   document.getElementById('tab-' + id).classList.add('active');
   btn.classList.add('active');
 }
+
 function toggleMob() {
   const nav = document.getElementById('mobNav');
   const btn = document.getElementById('mBtn');
@@ -758,6 +748,7 @@ window.addEventListener('scroll', () => {
     if (a.getAttribute('href') === '#' + cur) a.classList.add('active-link');
   });
 });
+
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const id = a.getAttribute('href').slice(1);
@@ -765,6 +756,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (el) { e.preventDefault(); window.scrollTo({top: el.offsetTop - 68, behavior:'smooth'}); closeMob(); }
   });
 });
+
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
